@@ -8,6 +8,11 @@
 #include <queue>
 #include <string>
 #include "utils.h"
+#include <stdexcept>
+#include <limits>
+#include <typeinfo>       // operator typeid
+#include <exception>
+
 using namespace std;
 
 /**
