@@ -3,7 +3,47 @@
 
 #include "Graph.h"
 
-Graph::Graph(int nodes, bool directed) : nodes(nodes+1), directed(directed) {
+using namespace std;
+
+Graph::Graph() {}
+
+void Graph::initialize(const string &filename) {
+
+    fstream file;
+    file.open(filename, ios::in);
+    if (!file)
+    {
+        cerr << "Error: file " << filename << " not found" << endl;
+        return; //???
+    }
+    if (file.is_open())
+    {   
+        string numNodes;
+        string InitialNode, DestinyNode, capacity, duration;
+        getline(file, numNodes, ' ');
+        try{
+        this->nodes = vector<Node>(stoi(numNodes)+1);
+        }
+        catch (exception e){
+            return;
+        }
+        file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        while (!file.eof())
+        {
+            getline(file, InitialNode, ' ');
+            getline(file, DestinyNode, ' ');
+            getline(file, capacity, ' ');
+            getline(file, duration);
+            try {
+                this->addEdge(stoi(InitialNode), stoi(DestinyNode), stoi(capacity), stoi(duration));
+            }
+            catch (exception e) {
+                cerr << "Error: File data not valid" << endl;
+                return;
+            }
+        }
+        file.close();
+    }
 }
 
 void Graph::clear() {
@@ -17,9 +57,7 @@ void Graph::addNode(const Node &node, int index) {
 
 void Graph::addEdge(int origin, int destiny, int capacity, int duration) {
     if (origin < 1 || destiny > nodes.size() || origin > nodes.size() || destiny < 1) return;
-        nodes[origin].adjacent.push_back({destiny, capacity, duration});
-    if (!this->directed)
-        nodes[destiny].adjacent.push_back({origin, capacity, duration});
+    nodes[origin].adjacent.push_back({destiny, capacity, duration});
 }
 
 void Graph::BFS(int origin) {
@@ -37,6 +75,8 @@ void Graph::BFS(int origin) {
 
         int node = visitedNodes.front();
         visitedNodes.pop();
+
+        cout << node << endl;
 
         for (const Edge &edge : nodes[node].adjacent) {
 
