@@ -13,7 +13,7 @@ find_package(Doxygen)
 if (DOXYGEN_FOUND)
     set(DOXYGEN_EXTRACT_PRIVATE "YES")
     set(DOXYGEN_EXTRACT_STATIC "YES")
-    set(DOXYGEN_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
+    set(DOXYGEN_OUTPUT_DIRECTORY "../documentacao/")
 
     # set input and output files
     set(DOXYGEN_IN ${PROJECT_BINARY_DIR}/CMakeDoxyfile.in)
