@@ -36,17 +36,24 @@ void Graph::initialize(const string &filename) {
     }
 }
 
-void Graph::clear() {
-    for (Node node : nodes) node.adjacent.clear();
-    nodes.clear();
+void Graph::reset() {
+    for (int i = 1 ; i < nodes.size() ; i++) {
+        nodes[i].parent = -1;
+        nodes[i].capacity = 0;
+        nodes[i].visited = false;
+    }
 }
 
 void Graph::addNode(const Node &node, int index) {
     this->nodes[index] = node;
 }
 
+bool Graph::isValid(int node) {
+    return node > 0 && node < nodes.size();
+}
+
 void Graph::addEdge(int origin, int destiny, int capacity, int duration) {
-    if (origin < 1 || destiny > nodes.size() || origin > nodes.size() || destiny < 1) return;
+    if (!isValid(origin) || !isValid(destiny)) return;
     nodes[origin].adjacent.push_back({destiny, capacity, duration});
 }
 
@@ -64,22 +71,27 @@ void Graph::showPath(int origin, int destiny) {
     } else path.push_front(currentNode);
 
     int maxCapacity = INF;
+    int transbordos = 0;
+    cout << *path.begin();
+    path.erase(path.begin());
     while (!path.empty()) {
-        cout << " -> " << *path.begin();
+        cout << " <--(" << nodes[*path.begin()].capacity << ")--> " << *path.begin();
         maxCapacity = min(maxCapacity, nodes[*path.begin()].capacity);
         path.erase(path.begin());
+        transbordos++;
     }
     cout << "\nMax capacity: " << maxCapacity << endl;
-    return;
+    cout << "Transbordos: " << transbordos << endl;
 }
 
 void Graph::case1_a(int origin, int destiny) {
 
+    cout << "Maximizar o número de pessoas a viajar" << endl;
+
     set<pair<int, int>> capacities;
 
+    reset();
     for (int i = 1 ; i < nodes.size() ; i++) {
-        nodes[i].parent = -1;
-        nodes[i].capacity = 0;
         capacities.insert(make_pair(0, i));
     }
 
@@ -103,16 +115,39 @@ void Graph::case1_a(int origin, int destiny) {
             }
         }    
     }
+    showPath(origin, destiny);
 }
 
 void Graph::case1_b(int origin, int destiny) {
 
-    cout << "TODO" << endl;
+    cout << "Minimizar o número de transbordos" << endl;
+
+    reset();
+    queue<int> visitedNodes = {};
+    visitedNodes.push(origin);              
+    nodes[origin].visited = true;           
+
+    while (!visitedNodes.empty()) {
+
+        int node = visitedNodes.front();
+        visitedNodes.pop();          
+
+        for (Edge e : nodes[node].adjacent) { 
+            int n = e.dest;              
+            if (!nodes[n].visited) {               
+                visitedNodes.push(n);           
+                nodes[n].visited = true; 
+                nodes[n].capacity = e.capacity;   
+                nodes[n].parent = node;  
+            }
+        }
+    }
+    showPath(origin, destiny);
 }
 
 void Graph::case1(int mode, int origin, int destiny) {
 
-    if (origin < 1 || origin > nodes.size() - 1 || destiny < 1 || destiny > nodes.size() - 1) {
+    if (!isValid(origin) || !isValid(destiny)) {
         cerr << "Error: Invalid node number. Max is " << nodes.size()-1 << endl;
         return;
     }
@@ -122,6 +157,7 @@ void Graph::case1(int mode, int origin, int destiny) {
             case1_a(origin, destiny);
             break;
         case 2:
+            case1_a(origin, destiny);
             case1_b(origin, destiny);
             break;
         default:
@@ -129,8 +165,6 @@ void Graph::case1(int mode, int origin, int destiny) {
             exit(-1);
             break;
     }
-
-    showPath(origin, destiny);
 }
 
 #endif /* PROJECT_DA_PT2_GRAPH_CPP */

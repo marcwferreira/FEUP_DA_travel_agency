@@ -46,6 +46,21 @@ class Graph {
         void addEdge(int origin, int destiny, int capacity, int duration);
 
         /**
+         * Function that clears all Nodes
+         * Time Complexity: O(V), which V is the number of nodes
+         */
+        void reset();
+        
+        /**
+         * @brief 
+         * 
+         * @param node 
+         * @return true 
+         * @return false 
+         */
+        bool isValid(int node);
+
+        /**
          * @brief 
          * 
          * @param origin 
@@ -82,12 +97,6 @@ class Graph {
          * @param filename 
          */
         void initialize(const string &filename);
-
-        /**
-         * Function that clears all Nodes
-         * Time Complexity: O(V), which V is the number of nodes
-         */
-        void clear();
 
         /**
          * @brief 

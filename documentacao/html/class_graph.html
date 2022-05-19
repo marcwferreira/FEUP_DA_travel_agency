@@ -79,8 +79,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a35a32a6eaa7fc7a8761b7dd679ec4b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeea3f2b7642feafffed0902239447a71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aeea3f2b7642feafffed0902239447a71">initialize</a> (const string &amp;filename)</td></tr>
 <tr class="separator:aeea3f2b7642feafffed0902239447a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6192a41101102ca8aa6acca607c84f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ac6192a41101102ca8aa6acca607c84f3">clear</a> ()</td></tr>
-<tr class="separator:ac6192a41101102ca8aa6acca607c84f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f33a0e2669fec1f778e63e2a38a7441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a2f33a0e2669fec1f778e63e2a38a7441">case1</a> (int mode, int origin, int destiny)</td></tr>
 <tr class="separator:a2f33a0e2669fec1f778e63e2a38a7441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -90,6 +88,10 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ae6435511191b198acbd6ef2a6c84be10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c2b6eadcdcd8e2b0ff280fe00a83a63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a9c2b6eadcdcd8e2b0ff280fe00a83a63">addEdge</a> (int origin, int destiny, int capacity, int duration)</td></tr>
 <tr class="separator:a9c2b6eadcdcd8e2b0ff280fe00a83a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68f211a37b40067115fc6274d46153ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a68f211a37b40067115fc6274d46153ed">reset</a> ()</td></tr>
+<tr class="separator:a68f211a37b40067115fc6274d46153ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9089828080b78f7653ce83976446029"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ac9089828080b78f7653ce83976446029">isValid</a> (int node)</td></tr>
+<tr class="separator:ac9089828080b78f7653ce83976446029"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb49c102487a7fac4de92c5f4f743c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aeb49c102487a7fac4de92c5f4f743c4a">showPath</a> (int origin, int destiny)</td></tr>
 <tr class="separator:aeb49c102487a7fac4de92c5f4f743c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f8a497ab18263838277d18c736d16e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a3f8a497ab18263838277d18c736d16e7">case1_a</a> (int origin, int destiny)</td></tr>
@@ -353,24 +355,6 @@ vector&lt; <a class="el" href="struct_node.html">Node</a> &gt;&#160;</td><td cla
 
 </div>
 </div>
-<a id="ac6192a41101102ca8aa6acca607c84f3" name="ac6192a41101102ca8aa6acca607c84f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6192a41101102ca8aa6acca607c84f3">&#9670;&nbsp;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Graph::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Function that clears all Nodes Time Complexity: O(V), which V is the number of nodes </p>
-
-</div>
-</div>
 <a id="aeea3f2b7642feafffed0902239447a71" name="aeea3f2b7642feafffed0902239447a71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeea3f2b7642feafffed0902239447a71">&#9670;&nbsp;</a></span>initialize()</h2>
 
@@ -392,6 +376,67 @@ vector&lt; <a class="el" href="struct_node.html">Node</a> &gt;&#160;</td><td cla
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac9089828080b78f7653ce83976446029" name="ac9089828080b78f7653ce83976446029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9089828080b78f7653ce83976446029">&#9670;&nbsp;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Graph::isValid </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="a68f211a37b40067115fc6274d46153ed" name="a68f211a37b40067115fc6274d46153ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68f211a37b40067115fc6274d46153ed">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Graph::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Function that clears all Nodes Time Complexity: O(V), which V is the number of nodes </p>
 
 </div>
 </div>

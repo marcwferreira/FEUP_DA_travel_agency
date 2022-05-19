@@ -49,6 +49,7 @@ int main(int argc, char* argv[]) {
 
     switch (stoi(argv[1])) {
         case 1:
+            // TODO: estes inputs são temporários aqui
             int origin, destiny;
             cout << "Origin: "; cin >> origin;
             cout << "Destiny: "; cin >> destiny;

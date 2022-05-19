@@ -11,8 +11,6 @@
 \item 
 void \mbox{\hyperlink{class_graph_aeea3f2b7642feafffed0902239447a71}{initialize}} (const string \&filename)
 \item 
-void \mbox{\hyperlink{class_graph_ac6192a41101102ca8aa6acca607c84f3}{clear}} ()
-\item 
 void \mbox{\hyperlink{class_graph_a2f33a0e2669fec1f778e63e2a38a7441}{case1}} (int mode, int origin, int destiny)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
@@ -21,6 +19,10 @@ void \mbox{\hyperlink{class_graph_a2f33a0e2669fec1f778e63e2a38a7441}{case1}} (in
 void \mbox{\hyperlink{class_graph_ae6435511191b198acbd6ef2a6c84be10}{add\+Node}} (const \mbox{\hyperlink{struct_node}{Node}} \&node, int index)
 \item 
 void \mbox{\hyperlink{class_graph_a9c2b6eadcdcd8e2b0ff280fe00a83a63}{add\+Edge}} (int origin, int destiny, int capacity, int duration)
+\item 
+void \mbox{\hyperlink{class_graph_a68f211a37b40067115fc6274d46153ed}{reset}} ()
+\item 
+bool \mbox{\hyperlink{class_graph_ac9089828080b78f7653ce83976446029}{is\+Valid}} (int node)
 \item 
 void \mbox{\hyperlink{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}{show\+Path}} (int origin, int destiny)
 \item 
@@ -120,13 +122,7 @@ Function that adds a new \mbox{\hyperlink{struct_node}{Node}} to the graph Time 
 {\em destiny} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_graph_ac6192a41101102ca8aa6acca607c84f3}\label{class_graph_ac6192a41101102ca8aa6acca607c84f3}} 
-\index{Graph@{Graph}!clear@{clear}}
-\index{clear@{clear}!Graph@{Graph}}
-\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
-{\footnotesize\ttfamily void Graph\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Function that clears all Nodes Time Complexity\+: O(\+V), which V is the number of nodes \mbox{\Hypertarget{class_graph_aeea3f2b7642feafffed0902239447a71}\label{class_graph_aeea3f2b7642feafffed0902239447a71}} 
+\mbox{\Hypertarget{class_graph_aeea3f2b7642feafffed0902239447a71}\label{class_graph_aeea3f2b7642feafffed0902239447a71}} 
 \index{Graph@{Graph}!initialize@{initialize}}
 \index{initialize@{initialize}!Graph@{Graph}}
 \doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
@@ -137,7 +133,29 @@ Function that clears all Nodes Time Complexity\+: O(\+V), which V is the number 
 {\em filename} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}\label{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}} 
+\mbox{\Hypertarget{class_graph_ac9089828080b78f7653ce83976446029}\label{class_graph_ac9089828080b78f7653ce83976446029}} 
+\index{Graph@{Graph}!isValid@{isValid}}
+\index{isValid@{isValid}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Graph\+::is\+Valid (\begin{DoxyParamCaption}\item[{int}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a68f211a37b40067115fc6274d46153ed}\label{class_graph_a68f211a37b40067115fc6274d46153ed}} 
+\index{Graph@{Graph}!reset@{reset}}
+\index{reset@{reset}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Graph\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Function that clears all Nodes Time Complexity\+: O(\+V), which V is the number of nodes \mbox{\Hypertarget{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}\label{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}} 
 \index{Graph@{Graph}!showPath@{showPath}}
 \index{showPath@{showPath}!Graph@{Graph}}
 \doxysubsubsection{\texorpdfstring{showPath()}{showPath()}}
