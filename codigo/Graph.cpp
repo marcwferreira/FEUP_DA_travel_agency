@@ -10,7 +10,7 @@ Graph::Graph() {}
 void Graph::initialize(const string &filename) {
 
     fstream file;
-    file.open(filename, ios::in);
+    file.open("../input/" + filename, ios::in);
     if (!file)
     {
         cerr << "Error: file " << filename << " not found" << endl;
@@ -38,7 +38,6 @@ void Graph::initialize(const string &filename) {
                 this->addEdge(stoi(InitialNode), stoi(DestinyNode), stoi(capacity), stoi(duration));
             }
             catch (exception e) {
-                cerr << "Error: File data not valid" << endl;
                 return;
             }
         }
