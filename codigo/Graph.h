@@ -6,13 +6,13 @@
 #include <iostream>
 #include <fstream>
 #include <queue>
+#include <set>
 #include <string>
 #include "Utils.h"
 #include <stdexcept>
 #include <limits>
-#include <typeinfo>       // operator typeid
+#include <typeinfo>
 #include <exception>
-
 using namespace std;
 
 /**
@@ -71,6 +71,23 @@ class Graph {
          * @param origin - index of origin stop
          */
         void BFS(int origin);
+
+        /**
+         * @brief 
+         * 
+         * @param mode 
+         * @param begin 
+         * @param end 
+         */
+        void case1(int mode, int begin, int end);
+
+        /**
+         * @brief 
+         * 
+         * @param begin 
+         * @param end 
+         */
+        void showPath(int begin, int end);
 };
 
 #endif /* PROJECT_DA_PT2_GRAPH_H */

@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
 
     switch (stoi(argv[1])) {
         case 1:
-            cout << "#TODO: Case 1" << endl;
+            graph.case1(1, 1, 10); // TODO: if (begin || end ) > numNodes -> abort
             break;
         case 2:
             cout << "#TODO: Case 2" << endl;
@@ -59,9 +59,6 @@ int main(int argc, char* argv[]) {
             exit(-1);
             break;
     }
-
-    // test graph
-    graph.BFS(1);
 
     return 0;
 }

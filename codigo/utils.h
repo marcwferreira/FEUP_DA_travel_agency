@@ -48,6 +48,8 @@ struct Node {
      * @var parent - an integer value represents previous node index
      */
     int parent;
+
+    int capacity;
 };
 
 #endif /* UTILS_H */

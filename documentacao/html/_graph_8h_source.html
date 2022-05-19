@@ -73,13 +73,13 @@ $(function() {
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;Utils.h&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;typeinfo&gt;</span>       <span class="comment">// operator typeid</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;exception&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;Utils.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;typeinfo&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;exception&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_graph.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graph.html">Graph</a> {</div>
@@ -101,16 +101,22 @@ $(function() {
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#ac6192a41101102ca8aa6acca607c84f3">clear</a>();</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#a97ed3b8052817385667b950d5f6abead">BFS</a>(<span class="keywordtype">int</span> origin);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif </span><span class="comment">/* PROJECT_DA_PT2_GRAPH_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#a5eb8e7715ef5ee0edeacb9c54f788285">case1</a>(<span class="keywordtype">int</span> mode, <span class="keywordtype">int</span> begin, <span class="keywordtype">int</span> end);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#a74b82aeb933de6d8e1a9aa691139a014">showPath</a>(<span class="keywordtype">int</span> begin, <span class="keywordtype">int</span> end);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif </span><span class="comment">/* PROJECT_DA_PT2_GRAPH_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> Graph.h:21</div></div>
-<div class="ttc" id="aclass_graph_html_a35a32a6eaa7fc7a8761b7dd679ec4b07"><div class="ttname"><a href="class_graph.html#a35a32a6eaa7fc7a8761b7dd679ec4b07">Graph::Graph</a></div><div class="ttdeci">Graph()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:8</div></div>
-<div class="ttc" id="aclass_graph_html_a97ed3b8052817385667b950d5f6abead"><div class="ttname"><a href="class_graph.html#a97ed3b8052817385667b950d5f6abead">Graph::BFS</a></div><div class="ttdeci">void BFS(int origin)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:62</div></div>
-<div class="ttc" id="aclass_graph_html_a9c2b6eadcdcd8e2b0ff280fe00a83a63"><div class="ttname"><a href="class_graph.html#a9c2b6eadcdcd8e2b0ff280fe00a83a63">Graph::addEdge</a></div><div class="ttdeci">void addEdge(int origin, int destiny, int capacity, int duration)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:57</div></div>
-<div class="ttc" id="aclass_graph_html_ac6192a41101102ca8aa6acca607c84f3"><div class="ttname"><a href="class_graph.html#ac6192a41101102ca8aa6acca607c84f3">Graph::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:48</div></div>
-<div class="ttc" id="aclass_graph_html_ae6435511191b198acbd6ef2a6c84be10"><div class="ttname"><a href="class_graph.html#ae6435511191b198acbd6ef2a6c84be10">Graph::addNode</a></div><div class="ttdeci">void addNode(const Node &amp;node, int index)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:53</div></div>
-<div class="ttc" id="aclass_graph_html_aeea3f2b7642feafffed0902239447a71"><div class="ttname"><a href="class_graph.html#aeea3f2b7642feafffed0902239447a71">Graph::initialize</a></div><div class="ttdeci">void initialize(const string &amp;filename)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:10</div></div>
+<div class="ttc" id="aclass_graph_html_a35a32a6eaa7fc7a8761b7dd679ec4b07"><div class="ttname"><a href="class_graph.html#a35a32a6eaa7fc7a8761b7dd679ec4b07">Graph::Graph</a></div><div class="ttdeci">Graph()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:6</div></div>
+<div class="ttc" id="aclass_graph_html_a5eb8e7715ef5ee0edeacb9c54f788285"><div class="ttname"><a href="class_graph.html#a5eb8e7715ef5ee0edeacb9c54f788285">Graph::case1</a></div><div class="ttdeci">void case1(int mode, int begin, int end)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:104</div></div>
+<div class="ttc" id="aclass_graph_html_a74b82aeb933de6d8e1a9aa691139a014"><div class="ttname"><a href="class_graph.html#a74b82aeb933de6d8e1a9aa691139a014">Graph::showPath</a></div><div class="ttdeci">void showPath(int begin, int end)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:84</div></div>
+<div class="ttc" id="aclass_graph_html_a97ed3b8052817385667b950d5f6abead"><div class="ttname"><a href="class_graph.html#a97ed3b8052817385667b950d5f6abead">Graph::BFS</a></div><div class="ttdeci">void BFS(int origin)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:53</div></div>
+<div class="ttc" id="aclass_graph_html_a9c2b6eadcdcd8e2b0ff280fe00a83a63"><div class="ttname"><a href="class_graph.html#a9c2b6eadcdcd8e2b0ff280fe00a83a63">Graph::addEdge</a></div><div class="ttdeci">void addEdge(int origin, int destiny, int capacity, int duration)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:48</div></div>
+<div class="ttc" id="aclass_graph_html_ac6192a41101102ca8aa6acca607c84f3"><div class="ttname"><a href="class_graph.html#ac6192a41101102ca8aa6acca607c84f3">Graph::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:39</div></div>
+<div class="ttc" id="aclass_graph_html_ae6435511191b198acbd6ef2a6c84be10"><div class="ttname"><a href="class_graph.html#ae6435511191b198acbd6ef2a6c84be10">Graph::addNode</a></div><div class="ttdeci">void addNode(const Node &amp;node, int index)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:44</div></div>
+<div class="ttc" id="aclass_graph_html_aeea3f2b7642feafffed0902239447a71"><div class="ttname"><a href="class_graph.html#aeea3f2b7642feafffed0902239447a71">Graph::initialize</a></div><div class="ttdeci">void initialize(const string &amp;filename)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:8</div></div>
 <div class="ttc" id="astruct_node_html"><div class="ttname"><a href="struct_node.html">Node</a></div><div class="ttdef"><b>Definition:</b> Utils.h:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
