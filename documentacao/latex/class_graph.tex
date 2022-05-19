@@ -13,11 +13,7 @@ void \mbox{\hyperlink{class_graph_aeea3f2b7642feafffed0902239447a71}{initialize}
 \item 
 void \mbox{\hyperlink{class_graph_ac6192a41101102ca8aa6acca607c84f3}{clear}} ()
 \item 
-void \mbox{\hyperlink{class_graph_a97ed3b8052817385667b950d5f6abead}{BFS}} (int origin)
-\item 
-void \mbox{\hyperlink{class_graph_a5eb8e7715ef5ee0edeacb9c54f788285}{case1}} (int mode, int begin, int end)
-\item 
-void \mbox{\hyperlink{class_graph_a74b82aeb933de6d8e1a9aa691139a014}{show\+Path}} (int begin, int end)
+void \mbox{\hyperlink{class_graph_a2f33a0e2669fec1f778e63e2a38a7441}{case1}} (int mode, int origin, int destiny)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -25,6 +21,12 @@ void \mbox{\hyperlink{class_graph_a74b82aeb933de6d8e1a9aa691139a014}{show\+Path}
 void \mbox{\hyperlink{class_graph_ae6435511191b198acbd6ef2a6c84be10}{add\+Node}} (const \mbox{\hyperlink{struct_node}{Node}} \&node, int index)
 \item 
 void \mbox{\hyperlink{class_graph_a9c2b6eadcdcd8e2b0ff280fe00a83a63}{add\+Edge}} (int origin, int destiny, int capacity, int duration)
+\item 
+void \mbox{\hyperlink{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}{show\+Path}} (int origin, int destiny)
+\item 
+void \mbox{\hyperlink{class_graph_a3f8a497ab18263838277d18c736d16e7}{case1\+\_\+a}} (int origin, int destiny)
+\item 
+void \mbox{\hyperlink{class_graph_a04bd8dd496a7f565b6c30e967a8ace18}{case1\+\_\+b}} (int origin, int destiny)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -77,30 +79,45 @@ Function that adds a new \mbox{\hyperlink{struct_node}{Node}} to the graph Time 
 {\em index} & -\/ an integer value that represents the Stop index in vector \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_graph_a97ed3b8052817385667b950d5f6abead}\label{class_graph_a97ed3b8052817385667b950d5f6abead}} 
-\index{Graph@{Graph}!BFS@{BFS}}
-\index{BFS@{BFS}!Graph@{Graph}}
-\doxysubsubsection{\texorpdfstring{BFS()}{BFS()}}
-{\footnotesize\ttfamily void Graph\+::\+BFS (\begin{DoxyParamCaption}\item[{int}]{origin }\end{DoxyParamCaption})}
-
-Breadth-\/first search to determinate the distance, in nodes, between two stops Time Complexity\+: O(V + E), which V is the number of Nodes and E is the number of edges 
-\begin{DoxyParams}{Parameters}
-{\em origin} & -\/ index of origin stop \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_graph_a5eb8e7715ef5ee0edeacb9c54f788285}\label{class_graph_a5eb8e7715ef5ee0edeacb9c54f788285}} 
+\mbox{\Hypertarget{class_graph_a2f33a0e2669fec1f778e63e2a38a7441}\label{class_graph_a2f33a0e2669fec1f778e63e2a38a7441}} 
 \index{Graph@{Graph}!case1@{case1}}
 \index{case1@{case1}!Graph@{Graph}}
 \doxysubsubsection{\texorpdfstring{case1()}{case1()}}
-{\footnotesize\ttfamily void Graph\+::case1 (\begin{DoxyParamCaption}\item[{int}]{mode,  }\item[{int}]{begin,  }\item[{int}]{end }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Graph\+::case1 (\begin{DoxyParamCaption}\item[{int}]{mode,  }\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})}
 
 
 \begin{DoxyParams}{Parameters}
 {\em mode} & \\
 \hline
-{\em begin} & \\
+{\em origin} & \\
 \hline
-{\em end} & \\
+{\em destiny} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a3f8a497ab18263838277d18c736d16e7}\label{class_graph_a3f8a497ab18263838277d18c736d16e7}} 
+\index{Graph@{Graph}!case1\_a@{case1\_a}}
+\index{case1\_a@{case1\_a}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{case1\_a()}{case1\_a()}}
+{\footnotesize\ttfamily void Graph\+::case1\+\_\+a (\begin{DoxyParamCaption}\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & \\
+\hline
+{\em destiny} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a04bd8dd496a7f565b6c30e967a8ace18}\label{class_graph_a04bd8dd496a7f565b6c30e967a8ace18}} 
+\index{Graph@{Graph}!case1\_b@{case1\_b}}
+\index{case1\_b@{case1\_b}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{case1\_b()}{case1\_b()}}
+{\footnotesize\ttfamily void Graph\+::case1\+\_\+b (\begin{DoxyParamCaption}\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & \\
+\hline
+{\em destiny} & \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_graph_ac6192a41101102ca8aa6acca607c84f3}\label{class_graph_ac6192a41101102ca8aa6acca607c84f3}} 
@@ -120,17 +137,17 @@ Function that clears all Nodes Time Complexity\+: O(\+V), which V is the number 
 {\em filename} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_graph_a74b82aeb933de6d8e1a9aa691139a014}\label{class_graph_a74b82aeb933de6d8e1a9aa691139a014}} 
+\mbox{\Hypertarget{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}\label{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}} 
 \index{Graph@{Graph}!showPath@{showPath}}
 \index{showPath@{showPath}!Graph@{Graph}}
 \doxysubsubsection{\texorpdfstring{showPath()}{showPath()}}
-{\footnotesize\ttfamily void Graph\+::show\+Path (\begin{DoxyParamCaption}\item[{int}]{begin,  }\item[{int}]{end }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Graph\+::show\+Path (\begin{DoxyParamCaption}\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 \begin{DoxyParams}{Parameters}
-{\em begin} & \\
+{\em origin} & \\
 \hline
-{\em end} & \\
+{\em destiny} & \\
 \hline
 \end{DoxyParams}
 

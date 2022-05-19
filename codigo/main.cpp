@@ -49,7 +49,10 @@ int main(int argc, char* argv[]) {
 
     switch (stoi(argv[1])) {
         case 1:
-            graph.case1(1, 1, 10); // TODO: if (begin || end ) > numNodes -> abort
+            int origin, destiny;
+            cout << "Origin: "; cin >> origin;
+            cout << "Destiny: "; cin >> destiny;
+            graph.case1(stoi(argv[2]), origin, destiny);
             break;
         case 2:
             cout << "#TODO: Case 2" << endl;

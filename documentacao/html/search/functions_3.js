@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['graph_0',['Graph',['../class_graph.html#a35a32a6eaa7fc7a8761b7dd679ec4b07',1,'Graph']]]
+  ['initialize_0',['initialize',['../class_graph.html#aeea3f2b7642feafffed0902239447a71',1,'Graph']]]
 ];

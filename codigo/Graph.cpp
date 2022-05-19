@@ -50,62 +50,31 @@ void Graph::addEdge(int origin, int destiny, int capacity, int duration) {
     nodes[origin].adjacent.push_back({destiny, capacity, duration});
 }
 
-void Graph::BFS(int origin) {
-
-    for (int i = 1 ; i < nodes.size() ; i++) {
-        nodes[i].visited = false;
-        nodes[i].parent = i;
-    }
-
-    queue<int> visitedNodes = {};
-    visitedNodes.push(origin);
-    nodes[origin].visited = true;
-
-    while (!visitedNodes.empty()) {
-
-        int node = visitedNodes.front();
-        visitedNodes.pop();
-
-        cout << node << endl;
-
-        for (const Edge &edge : nodes[node].adjacent) {
-
-            int n = edge.dest;
-
-            if (!nodes[n].visited) {
-                visitedNodes.push(n);
-                nodes[n].visited = true;
-                nodes[n].parent = node;
-            }
-        }
-    }
-}
-
-void Graph::showPath(int begin, int end) {
+void Graph::showPath(int origin, int destiny) {
 
     list<int> path;
-    int currentNode = end;
+    int currentNode = destiny;
     while (nodes[currentNode].parent != -1) { 
         path.push_front(currentNode);
         currentNode = nodes[currentNode].parent;
     }
-    if (currentNode != begin) {
-        cerr << "There is no path between node " << begin << " and node " << end << endl;
+    if (currentNode != origin) {
+        cerr << "Error: There is no path between node " << origin << " and node " << destiny << endl;
         return;
     } else path.push_front(currentNode);
 
+    int maxCapacity = INF;
     while (!path.empty()) {
-        cout << "Node: " << *path.begin() << endl;
+        cout << " -> " << *path.begin();
+        maxCapacity = min(maxCapacity, nodes[*path.begin()].capacity);
         path.erase(path.begin());
     }
+    cout << "\nMax capacity: " << maxCapacity << endl;
     return;
 }
 
-void Graph::case1(int mode, int begin, int end) {
+void Graph::case1_a(int origin, int destiny) {
 
-    // TODO: verificar begin e end && criar uma função para cada mode e fazer aqui o switch
-
-    // parte "a" do case 1
     set<pair<int, int>> capacities;
 
     for (int i = 1 ; i < nodes.size() ; i++) {
@@ -114,9 +83,9 @@ void Graph::case1(int mode, int begin, int end) {
         capacities.insert(make_pair(0, i));
     }
 
-    nodes[begin].capacity = INF;
-    capacities.erase(make_pair(0, begin));
-    capacities.insert(make_pair(INF, begin));
+    nodes[origin].capacity = INF;
+    capacities.erase(make_pair(0, origin));
+    capacities.insert(make_pair(INF, origin));
 
     while (!capacities.empty()) {
 
@@ -134,8 +103,34 @@ void Graph::case1(int mode, int begin, int end) {
             }
         }    
     }
+}
 
-    showPath(begin, end);
+void Graph::case1_b(int origin, int destiny) {
+
+    cout << "TODO" << endl;
+}
+
+void Graph::case1(int mode, int origin, int destiny) {
+
+    if (origin < 1 || origin > nodes.size() - 1 || destiny < 1 || destiny > nodes.size() - 1) {
+        cerr << "Error: Invalid node number. Max is " << nodes.size()-1 << endl;
+        return;
+    }
+
+    switch (mode) {
+        case 1:
+            case1_a(origin, destiny);
+            break;
+        case 2:
+            case1_b(origin, destiny);
+            break;
+        default:
+            cerr << "Invalid mode for scenario 1" << endl;
+            exit(-1);
+            break;
+    }
+
+    showPath(origin, destiny);
 }
 
 #endif /* PROJECT_DA_PT2_GRAPH_CPP */

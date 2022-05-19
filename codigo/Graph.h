@@ -44,6 +44,30 @@ class Graph {
          * @param duration - an integer value representing duration of traveling to one node to another
          */
         void addEdge(int origin, int destiny, int capacity, int duration);
+
+        /**
+         * @brief 
+         * 
+         * @param origin 
+         * @param destiny 
+         */
+        void showPath(int origin, int destiny);
+
+        /**
+         * @brief 
+         * 
+         * @param origin 
+         * @param destiny 
+         */
+        void case1_a(int origin, int destiny);
+
+        /**
+         * @brief 
+         * 
+         * @param origin 
+         * @param destiny 
+         */
+        void case1_b(int origin, int destiny);
         
     public:
 
@@ -66,28 +90,13 @@ class Graph {
         void clear();
 
         /**
-         * Breadth-first search to determinate the distance, in nodes, between two stops
-         * Time Complexity: O(V + E), which V is the number of Nodes and E is the number of edges
-         * @param origin - index of origin stop
-         */
-        void BFS(int origin);
-
-        /**
          * @brief 
          * 
          * @param mode 
-         * @param begin 
-         * @param end 
+         * @param origin 
+         * @param destiny 
          */
-        void case1(int mode, int begin, int end);
-
-        /**
-         * @brief 
-         * 
-         * @param begin 
-         * @param end 
-         */
-        void showPath(int begin, int end);
+        void case1(int mode, int origin, int destiny);
 };
 
 #endif /* PROJECT_DA_PT2_GRAPH_H */
