@@ -3,20 +3,24 @@
 using namespace std;
 
 void usage() {
-    cout << "\nUsage: /proj2 <CASE> <OPTION> <GRAPH>\n" << endl;
+    cout << "\nUsage: /proj2 <CASE> <OPTION> <GRAPH> <ORIGIN> <DESTINY>\n" << endl;
     cout << "       <CASE>" << endl;
     cout << "          1: Não há separação do grupo" << endl;
     cout << "          2: Pode haver separação do grupo" << endl;
     cout << "       <OPTION>" << endl;
-    cout << "          1: tal" << endl;
-    cout << "          2: tal" << endl;
+    cout << "          1: Maximização do tamanho do grupo" << endl;
+    cout << "          2: Minimização dos transbordos vs. maximização do tamanho do grupo" << endl;
     cout << "          3: tal" << endl;
     cout << "          4: tal" << endl;
     cout << "          5: tal" << endl;
     cout << "          6: tal" << endl;
     cout << "          7: tal" << endl;
     cout << "       <GRAPH>" << endl;
-    cout << "          Nome do ficheiro da pasta input que descreve o grafo\n" << endl;
+    cout << "          Nome do ficheiro da pasta input que descreve o grafo" << endl;
+    cout << "       <ORIGIN>" << endl;
+    cout << "          Nó de origem do caminho" << endl;
+    cout << "       <DESTINY>" << endl;
+    cout << "          Nó de destino do caminho\n" << endl;
 }
 
 void exists(const string &fileName)
@@ -33,7 +37,7 @@ void exists(const string &fileName)
 
 int main(int argc, char* argv[]) {
 
-    if (argc != 4) {
+    if (argc != 6) {
         if (argv[1] != NULL && !strcmp(argv[1], "--help")) {  
             usage();
         } else {
@@ -49,11 +53,9 @@ int main(int argc, char* argv[]) {
 
     switch (stoi(argv[1])) {
         case 1:
-            // TODO: estes inputs são temporários aqui
-            int origin, destiny;
-            cout << "Origin: "; cin >> origin;
-            cout << "Destiny: "; cin >> destiny;
-            graph.case1(stoi(argv[2]), origin, destiny);
+            try {
+                graph.case1(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]));
+            } catch (const exception &e) { cerr << "Error: Invalid inputs" << endl; }
             break;
         case 2:
             cout << "#TODO: Case 2" << endl;
