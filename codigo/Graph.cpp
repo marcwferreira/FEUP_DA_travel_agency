@@ -84,6 +84,8 @@ void Graph::showPath(int origin, int destiny) {
     cout << "Transbordos: " << transbordos << endl;
 }
 
+//CASE 1
+
 void Graph::case1_a(int origin, int destiny) {
 
     cout << "Maximizar o número de pessoas a viajar" << endl;
@@ -165,6 +167,83 @@ void Graph::case1(int mode, int origin, int destiny) {
             exit(-1);
             break;
     }
+}
+
+//CASE 2
+
+void Graph::case2_1(int origin, int destiny, int groupSize) {
+    
+    list<list<int>> pathList;
+    int remainderSize = groupSize;
+
+    while (remainderSize>0){ 
+
+        int capacity = INF;
+
+        reset();
+        queue<int> visitedNodes = {};
+        visitedNodes.push(origin);              
+        nodes[origin].visited = true;           
+
+        while (!visitedNodes.empty()) {
+
+            int node = visitedNodes.front();
+            visitedNodes.pop();          
+
+            for (Edge e : nodes[node].adjacent) { 
+                int n = e.dest;              
+                if (!nodes[n].visited && e.capacity > 0) {           
+                    visitedNodes.push(n);           
+                    nodes[n].visited = true; 
+                    nodes[n].capacity = e.capacity;   
+                    nodes[n].parent = node;  
+                    capacity = min(capacity, e.capacity);
+                }
+            }
+        }
+
+        list<int> path;
+
+        int currentNode = destiny;
+        while (nodes[currentNode].parent != -1) { 
+            path.push_front(currentNode);
+
+            for (Edge &e : nodes[nodes[currentNode].parent].adjacent){
+                if (e.dest == currentNode) {
+                    e.capacity -= capacity;
+                }
+            }
+
+            currentNode = nodes[currentNode].parent;
+        }
+        if (currentNode != origin) {
+            cerr << "Error: There is no path between node " << origin << " and node " << destiny << endl;
+            return;
+        } else path.push_front(currentNode);
+        pathList.push_back(path);
+        remainderSize -= capacity;
+
+        cout << *path.begin();
+        path.erase(path.begin());
+        while (!path.empty()) {
+            cout << " <---> " << *path.begin();
+            path.erase(path.begin());
+        }
+        cout << "  Capacity: " << capacity << endl;
+
+    }
+
+    /*
+    for(list<int> path1: pathList){
+        cout << *path1.begin();
+        path1.erase(path1.begin());
+        while (!path1.empty()) {
+            cout << *path1.begin();
+            path1.erase(path1.begin());
+        }
+    }
+    */
+
 }
 
 #endif /* PROJECT_DA_PT2_GRAPH_CPP */

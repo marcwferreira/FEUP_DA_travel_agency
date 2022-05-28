@@ -37,7 +37,7 @@ void exists(const string &fileName)
 
 int main(int argc, char* argv[]) {
 
-    if (argc != 6) {
+    if (argc != 7) {
         if (argv[1] != NULL && !strcmp(argv[1], "--help")) {  
             usage();
         } else {
@@ -58,7 +58,9 @@ int main(int argc, char* argv[]) {
             } catch (const exception &e) { cerr << "Error: Invalid inputs" << endl; }
             break;
         case 2:
-            cout << "#TODO: Case 2" << endl;
+            try {
+                graph.case2_1(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));
+            } catch (const exception &e) { cerr << "Error: Invalid inputs" << endl; }
             break;
         default:
             cerr << "Error: invalid case scenario" << endl;

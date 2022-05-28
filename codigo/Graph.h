@@ -106,6 +106,15 @@ class Graph {
          * @param destiny 
          */
         void case1(int mode, int origin, int destiny);
+
+        /**
+         * @brief 
+         * 
+         * @param origin 
+         * @param destiny
+         * @param groupSize 
+         */
+        void case2_1(int origin, int destiny, int groupSize);
 };
 
 #endif /* PROJECT_DA_PT2_GRAPH_H */
