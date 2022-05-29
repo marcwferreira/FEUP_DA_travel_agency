@@ -42,6 +42,7 @@ void Graph::reset() {
         nodes[i].capacity = 0;
         nodes[i].visited = false;
         nodes[i].degreeE = 0;
+        nodes[i].earliestArrival = INF;
     }
 }
 
@@ -473,7 +474,6 @@ void Graph::case2_d(int origin, int destiny, vector<vector<int>> pathList){
 
     int endTime = 0;
 
-    //get capacities before first run
     for(vector<int> curPath: pathList){
         
         int groupTime = 0;
@@ -550,6 +550,38 @@ void Graph::case2_e(int origin, int destiny, vector<vector<int>> pathList){
         if (nodes[i].visited)
             cout << "node: " << i << " earliestStart: " << nodes[i].earliestStart << endl;
     }
+
+    /*
+    for(int i = 1 ; i < nodes.size() ; i++){
+        if (nodes[i].visited)
+            cout << "node: " << i << " earliestArrival: " << nodes[i].earliestArrival << endl;
+    }
+    */
+
+    for (int i = 1 ; i < nodes.size() ; i++) {
+        if (nodes[i].visited) {
+            for (Edge e : nodes[i].adjacent) {
+                if (nodes[e.dest].visited && e.visit) {
+                    nodes[e.dest].earliestArrival = min(nodes[e.dest].earliestArrival, e.duration + nodes[i].earliestStart);
+                }
+            }
+        }
+    }
+    
+    for(int i = 1 ; i < nodes.size() ; i++){
+        if (nodes[i].visited)
+            cout << "node: " << i << " earliestArrival: " << nodes[i].earliestArrival << endl;
+    }
+
+    for (int i = 1 ; i < nodes.size() ; i++) {
+        if (nodes[i].visited) {
+            int waiting = nodes[i].earliestStart - nodes[i].earliestArrival;
+            if (waiting > 0) {
+                cout << "node " << i << " waiting " << waiting << " seconds" << endl; 
+            }
+        }
+    }
+
 }
 
 #endif /* PROJECT_DA_PT2_GRAPH_CPP */

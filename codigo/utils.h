@@ -65,6 +65,8 @@ struct Node {
     int latestFinish;
 
     int degreeE;
+
+    int earliestArrival;
 };
 
 bool readGivenPaths(vector<vector<int>> *paths, int *groupSize);
