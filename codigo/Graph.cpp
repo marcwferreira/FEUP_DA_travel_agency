@@ -467,6 +467,8 @@ void Graph::case2_c(int origin, int destiny) {
 
 void Graph::case2_d(int origin, int destiny, vector<vector<int>> pathList){
     
+    if(pathList.empty()) return;
+
     int endTime = 0;
 
     //get capacities before first run
