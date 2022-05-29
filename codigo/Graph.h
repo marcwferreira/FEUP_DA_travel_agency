@@ -83,6 +83,15 @@ class Graph {
          * @param destiny 
          */
         void case1_b(int origin, int destiny);
+
+        /**
+         * @brief 
+         * 
+         * @param origin 
+         * @param destiny
+         * @param groupSize 
+         */
+        void case2_a(int origin, int destiny, int groupSize);
         
     public:
 
@@ -110,11 +119,14 @@ class Graph {
         /**
          * @brief 
          * 
+         * @param mode 
          * @param origin 
-         * @param destiny
-         * @param groupSize 
+         * @param destiny 
+         * @param groupSize
          */
-        void case2_1(int origin, int destiny, int groupSize);
+        void case2(int mode, int origin, int destiny, int groupSize);
+
+
 };
 
 #endif /* PROJECT_DA_PT2_GRAPH_H */

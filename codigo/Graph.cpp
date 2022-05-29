@@ -169,9 +169,39 @@ void Graph::case1(int mode, int origin, int destiny) {
     }
 }
 
+void Graph::case2(int mode, int origin, int destiny, int groupSize) {
+
+    if (!isValid(origin) || !isValid(destiny)) {
+        cerr << "Error: Invalid node number. Max is " << nodes.size()-1 << endl;
+        return;
+    }
+
+    switch (mode) {
+        case 3:
+            case2_a(origin, destiny, groupSize);
+            break;
+        case 4:
+            cout << "TODO" << endl;
+            break;
+        case 5:
+            cout << "TODO" << endl;
+            break;
+        case 6:
+            cout << "TODO" << endl;
+            break;
+        case 7:
+            cout << "TODO" << endl;
+            break;
+        default:
+            cerr << "Invalid mode for scenario 2" << endl;
+            exit(-1);
+            break;
+    }
+}
+
 //CASE 2
 
-void Graph::case2_1(int origin, int destiny, int groupSize) {
+void Graph::case2_a(int origin, int destiny, int groupSize) {
     
     list<list<int>> pathList;
     int remainderSize = groupSize;

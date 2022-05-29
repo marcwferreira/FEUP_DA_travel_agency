@@ -3,16 +3,16 @@
 using namespace std;
 
 void usage() {
-    cout << "\nUsage: /proj2 <CASE> <OPTION> <GRAPH> <ORIGIN> <DESTINY>\n" << endl;
+    cout << "\nUsage: /proj2 <CASE> <OPTION> <GRAPH> <ORIGIN> <DESTINY> [GROUP SIZE]\n" << endl;
     cout << "       <CASE>" << endl;
     cout << "          1: Não há separação do grupo" << endl;
     cout << "          2: Pode haver separação do grupo" << endl;
     cout << "       <OPTION>" << endl;
     cout << "          1: Maximização do tamanho do grupo" << endl;
     cout << "          2: Minimização dos transbordos vs. maximização do tamanho do grupo" << endl;
-    cout << "          3: tal" << endl;
-    cout << "          4: tal" << endl;
-    cout << "          5: tal" << endl;
+    cout << "          3: Determinar um encaminhamento para um grupo de tamanho GROUP SIZE" << endl;
+    cout << "          4: Corrigir o encaminhamento anterior de modo a aumentar o tamanho do grupo transportado" << endl;
+    cout << "          5: Determinar o fluxo máximo do grafo" << endl;
     cout << "          6: tal" << endl;
     cout << "          7: tal" << endl;
     cout << "       <GRAPH>" << endl;
@@ -20,7 +20,9 @@ void usage() {
     cout << "       <ORIGIN>" << endl;
     cout << "          Nó de origem do caminho" << endl;
     cout << "       <DESTINY>" << endl;
-    cout << "          Nó de destino do caminho\n" << endl;
+    cout << "          Nó de destino do caminho" << endl;
+    cout << "       [GROUP SIZE]" << endl;
+    cout << "          Tamanho do grupo desejado\n" << endl;
 }
 
 void exists(const string &fileName)
@@ -59,7 +61,7 @@ int main(int argc, char* argv[]) {
             break;
         case 2:
             try {
-                graph.case2_1(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));
+                graph.case2(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));
             } catch (const exception &e) { cerr << "Error: Invalid inputs" << endl; }
             break;
         default:
