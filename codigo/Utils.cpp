@@ -1,6 +1,6 @@
 #include "Utils.h"
 
-bool readGivenPaths(list<list<int>> *paths, int *groupSize) {
+bool readGivenPaths(vector<vector<int>> *paths, int *groupSize) {
 
     string fileName;
     cout << "File: "; cin >> fileName;
@@ -21,7 +21,7 @@ bool readGivenPaths(list<list<int>> *paths, int *groupSize) {
 
         while (!file.eof())
         {
-            list<int> path;
+            vector<int> path;
             getline(file, line);
             if (line.empty()) break;
             stringstream l(line);

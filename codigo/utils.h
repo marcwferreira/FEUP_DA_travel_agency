@@ -1,6 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <vector>
 #include <list>
 #include <iostream>
 #include <fstream>
@@ -58,6 +59,6 @@ struct Node {
     int capacity;
 };
 
-bool readGivenPaths(list<list<int>> *paths, int *groupSize);
+bool readGivenPaths(vector<vector<int>> *paths, int *groupSize);
 
 #endif /* UTILS_H */
