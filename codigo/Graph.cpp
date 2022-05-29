@@ -177,13 +177,13 @@ void Graph::case2(int mode, int origin, int destiny, int groupSize) {
     }
 
     vector<vector<int>> paths;
+    int oldGroupSize;
 
     switch (mode) {
         case 3:
             case2_a(origin, destiny, groupSize);
             break;
         case 4:
-            int oldGroupSize;
             readGivenPaths(&paths, &oldGroupSize);
             case2_b(origin, destiny, paths, oldGroupSize, groupSize);
             break;
@@ -191,7 +191,8 @@ void Graph::case2(int mode, int origin, int destiny, int groupSize) {
             case2_c(origin, destiny);
             break;
         case 6:
-            cout << "TODO" << endl;
+            readGivenPaths(&paths, &oldGroupSize);
+            case2_d(origin, destiny, paths);
             break;
         case 7:
             cout << "TODO" << endl;
@@ -278,7 +279,7 @@ void Graph::case2_a(int origin, int destiny, int groupSize) {
         for (int j=1; j<pathList[i].size(); j++){
             cout << "<--->" << pathList[i][j];
         }
-        cout << "Capacity: " << capacities[i] << endl;
+        cout << " Capacity: " << capacities[i] << endl;
     }
 
 }
@@ -381,7 +382,7 @@ void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int o
         for (int j=1; j<pathList[i].size(); j++){
             cout << "<--->" << pathList[i][j];
         }
-        cout << "Capacity: " << capacities[i] << endl;
+        cout << " Capacity: " << capacities[i] << endl;
     }
 
 }
@@ -457,10 +458,33 @@ void Graph::case2_c(int origin, int destiny) {
         for (int j=1; j<pathList[i].size(); j++){
             cout << "<--->" << pathList[i][j];
         }
-        cout << "Capacity: " << capacities[i] << endl;
+        cout << " Capacity: " << capacities[i] << endl;
         totalCapacity += capacities[i];
     }
     cout << "Total capacity: " << totalCapacity << endl;
+
+}
+
+void Graph::case2_d(int origin, int destiny, vector<vector<int>> pathList){
+    
+    int endTime = 0;
+
+    //get capacities before first run
+    for(vector<int> curPath: pathList){
+        
+        int groupTime = 0;
+        for(int i=0; i<curPath.size()-1; i++){
+            for(auto j: nodes[curPath[i]].adjacent){
+                if(j.dest == curPath[i+1]){
+                  groupTime += j.duration;
+                }
+            }
+        }
+        
+        endTime = max(endTime,groupTime);
+    }
+
+    cout << endTime << endl;
 
 }
 
