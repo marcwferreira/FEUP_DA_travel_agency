@@ -98,9 +98,20 @@ class Graph {
          * 
          * @param origin 
          * @param destiny
+         * @param pathList
+         * @param oldGroupSize
+         * @param newGroupSize
          * @param groupSize 
          */
         void case2_b(int origin, int destiny, vector<vector<int>> pathList, int oldGroupSize, int newGroupSize);
+
+        /**
+         * @brief 
+         * 
+         * @param origin 
+         * @param destiny
+         */
+        void case2_c(int origin, int destiny);
         
     public:
 

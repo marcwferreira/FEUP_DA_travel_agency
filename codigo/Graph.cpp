@@ -188,7 +188,7 @@ void Graph::case2(int mode, int origin, int destiny, int groupSize) {
             case2_b(origin, destiny, paths, oldGroupSize, groupSize);
             break;
         case 5:
-            cout << "TODO" << endl;
+            case2_c(origin, destiny);
             break;
         case 6:
             cout << "TODO" << endl;
@@ -383,6 +383,84 @@ void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int o
         }
         cout << "Capacity: " << capacities[i] << endl;
     }
+
+}
+
+void Graph::case2_c(int origin, int destiny) {
+    
+    vector<vector<int>> pathList;
+    vector<int> capacities;
+
+    while (true){ 
+
+        int capacity = INF;
+
+        reset();
+        queue<int> visitedNodes = {};
+        visitedNodes.push(origin);              
+        nodes[origin].visited = true;           
+
+        while (!visitedNodes.empty()) {
+
+            int node = visitedNodes.front();
+            visitedNodes.pop();          
+
+            for (Edge e : nodes[node].adjacent) { 
+                int n = e.dest;              
+                if (!nodes[n].visited && e.capacity > 0) {           
+                    visitedNodes.push(n);           
+                    nodes[n].visited = true; 
+                    nodes[n].capacity = e.capacity;   
+                    nodes[n].parent = node;  
+                    capacity = min(capacity, e.capacity);
+                }
+            }
+
+        }
+
+        vector<int> path;
+
+        int currentNode = destiny;
+        while (nodes[currentNode].parent != -1) { 
+            path.push_back(currentNode);
+
+            for (Edge &e : nodes[nodes[currentNode].parent].adjacent){
+                if (e.dest == currentNode) {
+                    e.capacity -= capacity;
+                }
+            }
+
+            currentNode = nodes[currentNode].parent;
+        }
+        if (currentNode != origin) {
+            break;
+        } else path.push_back(currentNode);
+
+        reverse(path.begin(), path.end());
+
+        bool pathExited = false;
+        for(int i = 0; i<pathList.size(); i++){
+            if(path == pathList[i]){
+                capacities[i]+= capacity;
+                pathExited = true;
+            }
+        }
+        if (!pathExited) {
+            pathList.push_back(path);
+            capacities.push_back(capacity);
+        }
+    }
+
+    int totalCapacity = 0;
+    for (int i = 0 ; i < pathList.size() ; i++) {
+        cout << pathList[i][0];
+        for (int j=1; j<pathList[i].size(); j++){
+            cout << "<--->" << pathList[i][j];
+        }
+        cout << "Capacity: " << capacities[i] << endl;
+        totalCapacity += capacities[i];
+    }
+    cout << "Total capacity: " << totalCapacity << endl;
 
 }
 

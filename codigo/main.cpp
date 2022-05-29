@@ -61,7 +61,11 @@ int main(int argc, char* argv[]) {
             break;
         case 2:
             try {
-                graph.case2(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));
+                if (stoi(argv[2]) == 5) {
+                    graph.case2(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]), 0);
+                } else {
+                    graph.case2(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));
+                }
             } catch (const exception &e) { cerr << "Error: Invalid inputs" << endl; }
             break;
         default:
