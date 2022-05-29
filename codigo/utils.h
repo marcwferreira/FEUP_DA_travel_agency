@@ -34,6 +34,8 @@ struct Edge {
      * @var duration - an integer value that represents the duration of traveling to destination node
      */
     int duration;
+
+    bool visit;
 };
 
 /**
@@ -57,6 +59,12 @@ struct Node {
     int parent;
 
     int capacity;
+
+    int earliestStart;
+
+    int latestFinish;
+
+    int degreeE;
 };
 
 bool readGivenPaths(vector<vector<int>> *paths, int *groupSize);

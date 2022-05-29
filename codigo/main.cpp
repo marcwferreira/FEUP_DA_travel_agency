@@ -61,7 +61,7 @@ int main(int argc, char* argv[]) {
             break;
         case 2:
             try {
-                if (stoi(argv[2]) == 5 || stoi(argv[2]) == 6) {
+                if (stoi(argv[2]) == 5 || stoi(argv[2]) == 6 || stoi(argv[2]) == 7) {
                     graph.case2(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]), 0);
                 } else {
                     graph.case2(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));

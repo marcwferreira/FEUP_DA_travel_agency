@@ -11,54 +11,57 @@
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#include <queue>}}
 \DoxyCodeLine{9 \textcolor{preprocessor}{\#include <set>}}
 \DoxyCodeLine{10 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}Utils.h"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stdexcept>}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <limits>}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <typeinfo>}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <exception>}}
-\DoxyCodeLine{16 \textcolor{keyword}{using namespace }std;}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_graph}{Graph}} \{}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23     \textcolor{keyword}{private}:}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{28         vector<Node> nodes;}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{36         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_ae6435511191b198acbd6ef2a6c84be10}{addNode}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_node}{Node}} \&node, \textcolor{keywordtype}{int} index);}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{46         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a9c2b6eadcdcd8e2b0ff280fe00a83a63}{addEdge}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, \textcolor{keywordtype}{int} capacity, \textcolor{keywordtype}{int} duration);}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{52         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a68f211a37b40067115fc6274d46153ed}{reset}}();}
-\DoxyCodeLine{53         }
-\DoxyCodeLine{61         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_ac9089828080b78f7653ce83976446029}{isValid}}(\textcolor{keywordtype}{int} node);}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{69         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}{showPath}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{77         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a3f8a497ab18263838277d18c736d16e7}{case1\_a}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{85         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a04bd8dd496a7f565b6c30e967a8ace18}{case1\_b}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{94         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a0515c45d0f818bf21ed88c4528fe4077}{case2\_a}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, \textcolor{keywordtype}{int} groupSize);}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{106         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a869d3d6616adf0d0fa8ce575c2faa893}{case2\_b}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, vector<vector<int>> pathList, \textcolor{keywordtype}{int} oldGroupSize, \textcolor{keywordtype}{int} newGroupSize);}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{114         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a73d0a5660aba580b3ff020a6eb9a19fd}{case2\_c}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{126         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a39f44063eb9db9387514fe7d620d0d9e}{case2\_d}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, vector<vector<int>> pathList);}
-\DoxyCodeLine{127 }
-\DoxyCodeLine{128     \textcolor{keyword}{public}:}
-\DoxyCodeLine{129 }
-\DoxyCodeLine{133         \mbox{\hyperlink{class_graph_a35a32a6eaa7fc7a8761b7dd679ec4b07}{Graph}}();}
-\DoxyCodeLine{134         }
-\DoxyCodeLine{140         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_aeea3f2b7642feafffed0902239447a71}{initialize}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string} \&filename);}
-\DoxyCodeLine{141 }
-\DoxyCodeLine{149         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a2f33a0e2669fec1f778e63e2a38a7441}{case1}}(\textcolor{keywordtype}{int} mode, \textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
-\DoxyCodeLine{150 }
-\DoxyCodeLine{159         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_aec31768cd6007521a538298f5464a7ec}{case2}}(\textcolor{keywordtype}{int} mode, \textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, \textcolor{keywordtype}{int} groupSize);}
-\DoxyCodeLine{160 }
-\DoxyCodeLine{161 }
-\DoxyCodeLine{162 \};}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}Utils.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <typeinfo>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{17 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_graph}{Graph}} \{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{private}:}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{29         vector<Node> nodes;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{37         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_ae6435511191b198acbd6ef2a6c84be10}{addNode}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_node}{Node}} \&node, \textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{47         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a9c2b6eadcdcd8e2b0ff280fe00a83a63}{addEdge}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, \textcolor{keywordtype}{int} capacity, \textcolor{keywordtype}{int} duration);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a68f211a37b40067115fc6274d46153ed}{reset}}();}
+\DoxyCodeLine{54         }
+\DoxyCodeLine{62         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_graph_ac9089828080b78f7653ce83976446029}{isValid}}(\textcolor{keywordtype}{int} node);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{70         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}{showPath}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{78         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a3f8a497ab18263838277d18c736d16e7}{case1\_a}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{86         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a04bd8dd496a7f565b6c30e967a8ace18}{case1\_b}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{95         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a0515c45d0f818bf21ed88c4528fe4077}{case2\_a}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, \textcolor{keywordtype}{int} groupSize);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{107         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a869d3d6616adf0d0fa8ce575c2faa893}{case2\_b}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, vector<vector<int>> pathList, \textcolor{keywordtype}{int} oldGroupSize, \textcolor{keywordtype}{int} newGroupSize);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{115         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a73d0a5660aba580b3ff020a6eb9a19fd}{case2\_c}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{127         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a39f44063eb9db9387514fe7d620d0d9e}{case2\_d}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, vector<vector<int>> pathList);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{139         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a7c3535f65c293623ab57a769c2c6ad4f}{case2\_e}}(\textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, vector<vector<int>> pathList);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{keyword}{public}:}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{146         \mbox{\hyperlink{class_graph_a35a32a6eaa7fc7a8761b7dd679ec4b07}{Graph}}();}
+\DoxyCodeLine{147         }
+\DoxyCodeLine{153         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_aeea3f2b7642feafffed0902239447a71}{initialize}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string} \&filename);}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{162         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a2f33a0e2669fec1f778e63e2a38a7441}{case1}}(\textcolor{keywordtype}{int} mode, \textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny);}
 \DoxyCodeLine{163 }
-\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PROJECT\_DA\_PT2\_GRAPH\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{172         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_aec31768cd6007521a538298f5464a7ec}{case2}}(\textcolor{keywordtype}{int} mode, \textcolor{keywordtype}{int} origin, \textcolor{keywordtype}{int} destiny, \textcolor{keywordtype}{int} groupSize);}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PROJECT\_DA\_PT2\_GRAPH\_H */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

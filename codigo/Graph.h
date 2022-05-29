@@ -8,6 +8,7 @@
 #include <queue>
 #include <set>
 #include <string>
+#include <stack>
 #include "Utils.h"
 #include <stdexcept>
 #include <limits>
@@ -124,6 +125,18 @@ class Graph {
          * @param groupSize 
          */
         void case2_d(int origin, int destiny, vector<vector<int>> pathList);
+
+        /**
+         * @brief 
+         * 
+         * @param origin 
+         * @param destiny
+         * @param pathList
+         * @param oldGroupSize
+         * @param newGroupSize
+         * @param groupSize 
+         */
+        void case2_e(int origin, int destiny, vector<vector<int>> pathList);
 
     public:
 

@@ -41,6 +41,7 @@ void Graph::reset() {
         nodes[i].parent = -1;
         nodes[i].capacity = 0;
         nodes[i].visited = false;
+        nodes[i].degreeE = 0;
     }
 }
 
@@ -195,7 +196,8 @@ void Graph::case2(int mode, int origin, int destiny, int groupSize) {
             case2_d(origin, destiny, paths);
             break;
         case 7:
-            cout << "TODO" << endl;
+            readGivenPaths(&paths, &oldGroupSize);
+            case2_e(origin, destiny, paths);
             break;
         default:
             cerr << "Invalid mode for scenario 2" << endl;
@@ -488,6 +490,66 @@ void Graph::case2_d(int origin, int destiny, vector<vector<int>> pathList){
 
     cout << endTime << endl;
 
+}
+
+void Graph::case2_e(int origin, int destiny, vector<vector<int>> pathList){
+
+    reset();
+    
+    for (vector<int> path : pathList) {
+        for (int i = 0 ; i < path.size() -1 ; i++) {
+            for (Edge &e : nodes[path[i]].adjacent) {
+                if (e.dest == path[i+1]) {
+                    e.visit = true;
+                    nodes[e.dest].visited = true;
+                }
+                nodes[path[i]].visited = true;
+            }
+        }
+    }
+
+    for(auto &v: nodes){
+        v.earliestStart = 0;
+        v.parent = 0;
+        for(Edge &e: v.adjacent) {
+            if (e.visit) nodes[e.dest].degreeE++;
+        }
+    }
+
+    stack<int> S;
+    for(int i = 1 ; i < nodes.size() ; i++){
+        if(nodes[i].visited && nodes[i].degreeE==0){
+            S.push(i);
+        }
+    }
+    int minDuration = -1;
+    int vFinal;
+
+    while(!S.empty()){
+        int v = S.top();
+        S.pop();
+
+        if(minDuration < nodes[v].earliestStart){
+            minDuration = nodes[v].earliestStart;
+            vFinal = v;
+        }
+
+        for(auto &w: nodes[v].adjacent){
+            if( nodes[w.dest].earliestStart < nodes[v].earliestStart + w.duration){
+                printf("Hallo\n");
+                nodes[w.dest].earliestStart = nodes[v].earliestStart + w.duration;   
+            }
+            nodes[w.dest].degreeE--;
+            if(nodes[w.dest].degreeE==0){
+                S.push(w.dest);
+            }
+        }
+    }
+
+    for(int i = 1 ; i < nodes.size() ; i++){
+        if (nodes[i].visited)
+            cout << "node: " << i << " earliestStart: " << nodes[i].earliestStart << endl;
+    }
 }
 
 #endif /* PROJECT_DA_PT2_GRAPH_CPP */
