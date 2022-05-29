@@ -5,29 +5,37 @@
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define UTILS\_H}}
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <list>}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#define INF (INT\_MAX/2)}}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{14 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_edge}{Edge}} \{}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{19     \textcolor{keywordtype}{int} dest;}
-\DoxyCodeLine{20     }
-\DoxyCodeLine{24     \textcolor{keywordtype}{int} capacity;}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{29     \textcolor{keywordtype}{int} duration;}
-\DoxyCodeLine{30 \};}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define INF (INT\_MAX/2)}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{20 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_edge}{Edge}} \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} dest;}
+\DoxyCodeLine{26     }
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} capacity;}
 \DoxyCodeLine{31 }
-\DoxyCodeLine{35 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_node}{Node}} \{}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{40     std::list<Edge> adjacent;}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{45     \textcolor{keywordtype}{bool} visited;}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{50     \textcolor{keywordtype}{int} parent;}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52     \textcolor{keywordtype}{int} capacity;}
-\DoxyCodeLine{53 \};}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UTILS\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{35     \textcolor{keywordtype}{int} duration;}
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{41 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_node}{Node}} \{}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{46     std::list<Edge> adjacent;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool} visited;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} parent;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} capacity;}
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keywordtype}{bool} readGivenPaths(list<list<int>> *paths, \textcolor{keywordtype}{int} *groupSize);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UTILS\_H */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

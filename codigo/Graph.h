@@ -92,6 +92,15 @@ class Graph {
          * @param groupSize 
          */
         void case2_a(int origin, int destiny, int groupSize);
+
+         /**
+         * @brief 
+         * 
+         * @param origin 
+         * @param destiny
+         * @param groupSize 
+         */
+        void case2_b(int origin, int destiny, list<list<int>> pathList, int oldGroupSize, int newGroupSize);
         
     public:
 

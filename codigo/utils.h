@@ -2,6 +2,12 @@
 #define UTILS_H
 
 #include <list>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+using namespace std;
 
 /**
  * Definition of the largest number used in class bellow
@@ -51,5 +57,7 @@ struct Node {
 
     int capacity;
 };
+
+bool readGivenPaths(list<list<int>> *paths, int *groupSize);
 
 #endif /* UTILS_H */

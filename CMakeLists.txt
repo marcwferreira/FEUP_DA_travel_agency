@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g -fsanitize=address -fsanitize=undefined -fno-omit-frame-pointer")
 
 file(GLOB FILES CONFIGURE_DEPENDS "codigo/*.cpp")
-add_executable(proj2 codigo/main.cpp codigo/Graph.cpp ${FILES})
+add_executable(proj2 codigo/main.cpp codigo/Graph.cpp codigo/Utils.cpp ${FILES})
 
 # Doxygen-generated documentation (doxygen needs to be installed)
 find_package(Doxygen)

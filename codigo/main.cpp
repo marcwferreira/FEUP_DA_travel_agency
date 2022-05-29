@@ -12,7 +12,7 @@ void usage() {
     cout << "          2: Minimização dos transbordos vs. maximização do tamanho do grupo" << endl;
     cout << "          3: Determinar um encaminhamento para um grupo de tamanho GROUP SIZE" << endl;
     cout << "          4: Corrigir o encaminhamento anterior de modo a aumentar o tamanho do grupo transportado" << endl;
-    cout << "          5: Determinar o fluxo máximo do grafo" << endl;
+    cout << "          5: Determinar a dimensão máxima do grupo e um encaminhamento" << endl;
     cout << "          6: tal" << endl;
     cout << "          7: tal" << endl;
     cout << "       <GRAPH>" << endl;
@@ -39,7 +39,7 @@ void exists(const string &fileName)
 
 int main(int argc, char* argv[]) {
 
-    if (argc != 7) {
+    if (argc < 6 || argc > 7) {
         if (argv[1] != NULL && !strcmp(argv[1], "--help")) {  
             usage();
         } else {
