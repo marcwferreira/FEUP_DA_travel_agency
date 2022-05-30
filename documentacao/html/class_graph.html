@@ -92,8 +92,10 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a68f211a37b40067115fc6274d46153ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9089828080b78f7653ce83976446029"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ac9089828080b78f7653ce83976446029">isValid</a> (int node)</td></tr>
 <tr class="separator:ac9089828080b78f7653ce83976446029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb49c102487a7fac4de92c5f4f743c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aeb49c102487a7fac4de92c5f4f743c4a">showPath</a> (int origin, int destiny)</td></tr>
-<tr class="separator:aeb49c102487a7fac4de92c5f4f743c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae02e2d9fa09adf2cb37750f47dc949ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae02e2d9fa09adf2cb37750f47dc949ba">showPathCase1</a> (int origin, int destiny)</td></tr>
+<tr class="separator:ae02e2d9fa09adf2cb37750f47dc949ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62dc0371ad4c7f6a58e010482633ee56"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a62dc0371ad4c7f6a58e010482633ee56">showPathCase2</a> (const vector&lt; vector&lt; int &gt; &gt; &amp;pathList, vector&lt; int &gt; &amp;capacities)</td></tr>
+<tr class="separator:a62dc0371ad4c7f6a58e010482633ee56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f8a497ab18263838277d18c736d16e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a3f8a497ab18263838277d18c736d16e7">case1_a</a> (int origin, int destiny)</td></tr>
 <tr class="separator:a3f8a497ab18263838277d18c736d16e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04bd8dd496a7f565b6c30e967a8ace18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a04bd8dd496a7f565b6c30e967a8ace18">case1_b</a> (int origin, int destiny)</td></tr>
@@ -723,8 +725,8 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="aeb49c102487a7fac4de92c5f4f743c4a" name="aeb49c102487a7fac4de92c5f4f743c4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb49c102487a7fac4de92c5f4f743c4a">&#9670;&nbsp;</a></span>showPath()</h2>
+<a id="ae02e2d9fa09adf2cb37750f47dc949ba" name="ae02e2d9fa09adf2cb37750f47dc949ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02e2d9fa09adf2cb37750f47dc949ba">&#9670;&nbsp;</a></span>showPathCase1()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -733,7 +735,7 @@ false </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Graph::showPath </td>
+          <td class="memname">void Graph::showPathCase1 </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>origin</em>, </td>
@@ -743,6 +745,49 @@ false </dd></dl>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>destiny</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">origin</td><td></td></tr>
+    <tr><td class="paramname">destiny</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a62dc0371ad4c7f6a58e010482633ee56" name="a62dc0371ad4c7f6a58e010482633ee56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62dc0371ad4c7f6a58e010482633ee56">&#9670;&nbsp;</a></span>showPathCase2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::showPathCase2 </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; vector&lt; int &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pathList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>capacities</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

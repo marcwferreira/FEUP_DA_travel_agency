@@ -167,7 +167,18 @@ int Graph::BFS(int origin, int destiny) {
     return capacity;
 }
 
-int Graph::showPathCase2(const vector<vector<int>> &pathLis) 
+int Graph::showPathCase2(const vector<vector<int>> &pathList, vector<int> &capacities) {
+    int totalCapacity = 0;
+    for (int i = 0 ; i < pathList.size() ; i++) {
+        cout << pathList[i][0];
+        for (int j=1; j<pathList[i].size(); j++){
+            cout << "--->" << pathList[i][j];
+        }
+        cout << " Capacity: " << capacities[i] << endl;
+        totalCapacity += capacities[i];
+    }
+    return totalCapacity;
+}
 
 void Graph::case1_a(int origin, int destiny) {
 
@@ -200,14 +211,14 @@ void Graph::case1_a(int origin, int destiny) {
             }
         }    
     }
-    showPath(origin, destiny);
+    showPathCase1(origin, destiny);
 }
 
 void Graph::case1_b(int origin, int destiny) {
 
     cout << "Minimizing number of bus changes" << endl;
     BFS(origin, destiny);
-    showPath(origin, destiny);
+    showPathCase1(origin, destiny);
 }
 
 void Graph::case2_a(int origin, int destiny, int groupSize) {
@@ -251,14 +262,7 @@ void Graph::case2_a(int origin, int destiny, int groupSize) {
         remainderSize -= capacity;
     }
 
-    for (int i = 0 ; i < pathList.size() ; i++) {
-        cout << pathList[i][0];
-        for (int j=1; j<pathList[i].size(); j++){
-            cout << "<--->" << pathList[i][j];
-        }
-        cout << " Capacity: " << capacities[i] << endl;
-    }
-
+    showPathCase2(pathList, capacities);
 }
 
 void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int oldGroupSize, int newGroupSize) {
@@ -290,55 +294,48 @@ void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int o
         oldGroupSize -= pathCapacity;
     }
 
-    
+    if(newGroupSize > oldGroupSize){
+        while (remainderSize>0){ 
 
-    while (remainderSize>0){ 
+            int capacity = BFS(origin, destiny);
 
-        int capacity = BFS(origin, destiny);
+            vector<int> path;
 
-        vector<int> path;
+            int currentNode = destiny;
+            while (nodes[currentNode].parent != -1) { 
+                path.push_back(currentNode);
 
-        int currentNode = destiny;
-        while (nodes[currentNode].parent != -1) { 
-            path.push_back(currentNode);
+                for (Edge &e : nodes[nodes[currentNode].parent].adjacent){
+                    if (e.dest == currentNode) {
+                        e.capacity -= capacity;
+                    }
+                }
 
-            for (Edge &e : nodes[nodes[currentNode].parent].adjacent){
-                if (e.dest == currentNode) {
-                    e.capacity -= capacity;
+                currentNode = nodes[currentNode].parent;
+            }
+            if (currentNode != origin) {
+                cerr << "Error: There is no path between node " << origin << " and node " << destiny << " with desired capacity ("<< newGroupSize << ")" << endl;
+                return;
+            } else path.push_back(currentNode);
+
+            reverse(path.begin(), path.end());
+
+            bool pathExited = false;
+            for(int i = 0; i<pathList.size(); i++){
+                if(path == pathList[i]){
+                    capacities[i]+=min(capacity,remainderSize);
+                    pathExited = true;
                 }
             }
-
-            currentNode = nodes[currentNode].parent;
-        }
-        if (currentNode != origin) {
-            cerr << "Error: There is no path between node " << origin << " and node " << destiny << " with desired capacity ("<< newGroupSize << ")" << endl;
-            return;
-        } else path.push_back(currentNode);
-
-        reverse(path.begin(), path.end());
-
-        bool pathExited = false;
-        for(int i = 0; i<pathList.size(); i++){
-            if(path == pathList[i]){
-                capacities[i]+=min(capacity,remainderSize);
-                pathExited = true;
+            if (!pathExited) {
+                pathList.push_back(path);
+                capacities.push_back(min(capacity,remainderSize));
             }
+            remainderSize -= capacity;
         }
-        if (!pathExited) {
-            pathList.push_back(path);
-            capacities.push_back(min(capacity,remainderSize));
-        }
-        remainderSize -= capacity;
     }
 
-    for (int i = 0 ; i < pathList.size() ; i++) {
-        cout << pathList[i][0];
-        for (int j=1; j<pathList[i].size(); j++){
-            cout << "--->" << pathList[i][j];
-        }
-        cout << " Capacity: " << capacities[i] << endl;
-    }
-
+    showPathCase2(pathList, capacities);
 }
 
 void Graph::case2_c(int origin, int destiny) {
@@ -383,17 +380,8 @@ void Graph::case2_c(int origin, int destiny) {
         }
     }
 
-    int totalCapacity = 0;
-    for (int i = 0 ; i < pathList.size() ; i++) {
-        cout << pathList[i][0];
-        for (int j=1; j<pathList[i].size(); j++){
-            cout << "--->" << pathList[i][j];
-        }
-        cout << " Capacity: " << capacities[i] << endl;
-        totalCapacity += capacities[i];
-    }
+    int totalCapacity = showPathCase2(pathList, capacities);
     cout << "Total capacity: " << totalCapacity << endl;
-
 }
 
 void Graph::case2_d(int origin, int destiny, vector<vector<int>> pathList){

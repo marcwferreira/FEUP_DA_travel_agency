@@ -24,7 +24,9 @@ void \mbox{\hyperlink{class_graph_a68f211a37b40067115fc6274d46153ed}{reset}} ()
 \item 
 bool \mbox{\hyperlink{class_graph_ac9089828080b78f7653ce83976446029}{is\+Valid}} (int node)
 \item 
-void \mbox{\hyperlink{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}{show\+Path}} (int origin, int destiny)
+void \mbox{\hyperlink{class_graph_ae02e2d9fa09adf2cb37750f47dc949ba}{show\+Path\+Case1}} (int origin, int destiny)
+\item 
+int \mbox{\hyperlink{class_graph_a62dc0371ad4c7f6a58e010482633ee56}{show\+Path\+Case2}} (const vector$<$ vector$<$ int $>$ $>$ \&path\+List, vector$<$ int $>$ \&capacities)
 \item 
 void \mbox{\hyperlink{class_graph_a3f8a497ab18263838277d18c736d16e7}{case1\+\_\+a}} (int origin, int destiny)
 \item 
@@ -263,11 +265,24 @@ false
 \doxysubsubsection{\texorpdfstring{reset()}{reset()}}
 {\footnotesize\ttfamily void Graph\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Function that clears all Nodes Time Complexity\+: O(\+V), which V is the number of nodes \mbox{\Hypertarget{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}\label{class_graph_aeb49c102487a7fac4de92c5f4f743c4a}} 
-\index{Graph@{Graph}!showPath@{showPath}}
-\index{showPath@{showPath}!Graph@{Graph}}
-\doxysubsubsection{\texorpdfstring{showPath()}{showPath()}}
-{\footnotesize\ttfamily void Graph\+::show\+Path (\begin{DoxyParamCaption}\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+Function that clears all Nodes Time Complexity\+: O(\+V), which V is the number of nodes \mbox{\Hypertarget{class_graph_ae02e2d9fa09adf2cb37750f47dc949ba}\label{class_graph_ae02e2d9fa09adf2cb37750f47dc949ba}} 
+\index{Graph@{Graph}!showPathCase1@{showPathCase1}}
+\index{showPathCase1@{showPathCase1}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{showPathCase1()}{showPathCase1()}}
+{\footnotesize\ttfamily void Graph\+::show\+Path\+Case1 (\begin{DoxyParamCaption}\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & \\
+\hline
+{\em destiny} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a62dc0371ad4c7f6a58e010482633ee56}\label{class_graph_a62dc0371ad4c7f6a58e010482633ee56}} 
+\index{Graph@{Graph}!showPathCase2@{showPathCase2}}
+\index{showPathCase2@{showPathCase2}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{showPathCase2()}{showPathCase2()}}
+{\footnotesize\ttfamily int Graph\+::show\+Path\+Case2 (\begin{DoxyParamCaption}\item[{const vector$<$ vector$<$ int $>$ $>$ \&}]{path\+List,  }\item[{vector$<$ int $>$ \&}]{capacities }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 \begin{DoxyParams}{Parameters}
