@@ -55,7 +55,7 @@ void Graph::addEdge(int origin, int destiny, int capacity, int duration) {
     nodes[origin].adjacent.push_back({destiny, capacity, duration});
 }
 
-void Graph::showPath(int origin, int destiny) {
+void Graph::showPathCase1(int origin, int destiny) {
 
     list<int> path;
     int currentNode = destiny;
@@ -73,16 +73,14 @@ void Graph::showPath(int origin, int destiny) {
     cout << *path.begin();
     path.erase(path.begin());
     while (!path.empty()) {
-        cout << " <--(" << nodes[*path.begin()].capacity << ")--> " << *path.begin();
+        cout << " --(" << nodes[*path.begin()].capacity << ")--> " << *path.begin();
         maxCapacity = min(maxCapacity, nodes[*path.begin()].capacity);
         path.erase(path.begin());
         transbordos++;
     }
-    cout << "\nMax capacity: " << maxCapacity << endl;
-    cout << "Transbordos: " << transbordos << endl;
+    cout << "\nMaximum capacity: " << maxCapacity << endl;
+    cout << "Bus changes: " << transbordos << endl;
 }
-
-//CASE 1
 
 void Graph::case1(int mode, int origin, int destiny) {
 
@@ -105,69 +103,6 @@ void Graph::case1(int mode, int origin, int destiny) {
             break;
     }
 }
-
-void Graph::case1_a(int origin, int destiny) {
-
-    cout << "Maximizar o número de pessoas a viajar" << endl;
-
-    set<pair<int, int>> capacities;
-
-    reset();
-    for (int i = 1 ; i < nodes.size() ; i++) {
-        capacities.insert(make_pair(0, i));
-    }
-
-    nodes[origin].capacity = INF;
-    capacities.erase(make_pair(0, origin));
-    capacities.insert(make_pair(INF, origin));
-
-    while (!capacities.empty()) {
-
-        int currentNodeIndex = capacities.begin()->second;
-        int currentNodeCapacity = capacities.begin()->first;
-        capacities.erase(capacities.begin());
-
-        for (Edge e : nodes[currentNodeIndex].adjacent) {
-            if (min(currentNodeCapacity, e.capacity) > nodes[e.dest].capacity) {
-                int oldCapacity = nodes[e.dest].capacity;
-                nodes[e.dest].capacity = min(currentNodeCapacity, e.capacity);
-                nodes[e.dest].parent = currentNodeIndex;
-                capacities.erase(make_pair(oldCapacity, e.dest));
-                capacities.insert(make_pair(nodes[e.dest].capacity, e.dest));
-            }
-        }    
-    }
-    showPath(origin, destiny);
-}
-
-void Graph::case1_b(int origin, int destiny) {
-
-    cout << "Minimizar o número de transbordos" << endl;
-
-    reset();
-    queue<int> visitedNodes = {};
-    visitedNodes.push(origin);              
-    nodes[origin].visited = true;           
-
-    while (!visitedNodes.empty()) {
-
-        int node = visitedNodes.front();
-        visitedNodes.pop();          
-
-        for (Edge e : nodes[node].adjacent) { 
-            int n = e.dest;              
-            if (!nodes[n].visited) {               
-                visitedNodes.push(n);           
-                nodes[n].visited = true; 
-                nodes[n].capacity = e.capacity;   
-                nodes[n].parent = node;  
-            }
-        }
-    }
-    showPath(origin, destiny);
-}
-
-//CASE 2
 
 void Graph::case2(int mode, int origin, int destiny, int groupSize) {
 
@@ -205,6 +140,76 @@ void Graph::case2(int mode, int origin, int destiny, int groupSize) {
     }
 }
 
+int Graph::BFS(int origin, int destiny) {
+
+    reset();
+    int capacity = INF;
+    queue<int> visitedNodes = {};
+    visitedNodes.push(origin);              
+    nodes[origin].visited = true;           
+
+    while (!visitedNodes.empty()) {
+
+        int node = visitedNodes.front();
+        visitedNodes.pop();          
+
+        for (Edge e : nodes[node].adjacent) { 
+            int n = e.dest;              
+            if (!nodes[n].visited && e.capacity > 0) {           
+                visitedNodes.push(n);           
+                nodes[n].visited = true; 
+                nodes[n].capacity = e.capacity;   
+                nodes[n].parent = node;  
+                capacity = min(capacity, e.capacity);
+            }
+        }
+    }
+    return capacity;
+}
+
+int Graph::showPathCase2(const vector<vector<int>> &pathLis) 
+
+void Graph::case1_a(int origin, int destiny) {
+
+    cout << "Maximum number of passengers for the trip" << endl;
+
+    set<pair<int, int>> capacities;
+
+    reset();
+    for (int i = 1 ; i < nodes.size() ; i++) {
+        capacities.insert(make_pair(0, i));
+    }
+
+    nodes[origin].capacity = INF;
+    capacities.erase(make_pair(0, origin));
+    capacities.insert(make_pair(INF, origin));
+
+    while (!capacities.empty()) {
+
+        int currentNodeIndex = capacities.begin()->second;
+        int currentNodeCapacity = capacities.begin()->first;
+        capacities.erase(capacities.begin());
+
+        for (Edge e : nodes[currentNodeIndex].adjacent) {
+            if (min(currentNodeCapacity, e.capacity) > nodes[e.dest].capacity) {
+                int oldCapacity = nodes[e.dest].capacity;
+                nodes[e.dest].capacity = min(currentNodeCapacity, e.capacity);
+                nodes[e.dest].parent = currentNodeIndex;
+                capacities.erase(make_pair(oldCapacity, e.dest));
+                capacities.insert(make_pair(nodes[e.dest].capacity, e.dest));
+            }
+        }    
+    }
+    showPath(origin, destiny);
+}
+
+void Graph::case1_b(int origin, int destiny) {
+
+    cout << "Minimizing number of bus changes" << endl;
+    BFS(origin, destiny);
+    showPath(origin, destiny);
+}
+
 void Graph::case2_a(int origin, int destiny, int groupSize) {
     
     vector<vector<int>> pathList;
@@ -213,43 +218,16 @@ void Graph::case2_a(int origin, int destiny, int groupSize) {
 
     while (remainderSize>0){ 
 
-        int capacity = INF;
-
-        reset();
-        queue<int> visitedNodes = {};
-        visitedNodes.push(origin);              
-        nodes[origin].visited = true;           
-
-        while (!visitedNodes.empty()) {
-
-            int node = visitedNodes.front();
-            visitedNodes.pop();          
-
-            for (Edge e : nodes[node].adjacent) { 
-                int n = e.dest;              
-                if (!nodes[n].visited && e.capacity > 0) {           
-                    visitedNodes.push(n);           
-                    nodes[n].visited = true; 
-                    nodes[n].capacity = e.capacity;   
-                    nodes[n].parent = node;  
-                    capacity = min(capacity, e.capacity);
-                }
-            }
-
-        }
-
+        int capacity = BFS(origin, destiny);
         vector<int> path;
-
         int currentNode = destiny;
         while (nodes[currentNode].parent != -1) { 
             path.push_back(currentNode);
-
             for (Edge &e : nodes[nodes[currentNode].parent].adjacent){
                 if (e.dest == currentNode) {
                     e.capacity -= capacity;
                 }
             }
-
             currentNode = nodes[currentNode].parent;
         }
         if (currentNode != origin) {
@@ -316,30 +294,7 @@ void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int o
 
     while (remainderSize>0){ 
 
-        int capacity = INF;
-
-        reset();
-        queue<int> visitedNodes = {};
-        visitedNodes.push(origin);              
-        nodes[origin].visited = true;           
-
-        while (!visitedNodes.empty()) {
-
-            int node = visitedNodes.front();
-            visitedNodes.pop();          
-
-            for (Edge e : nodes[node].adjacent) { 
-                int n = e.dest;              
-                if (!nodes[n].visited && e.capacity > 0) {           
-                    visitedNodes.push(n);           
-                    nodes[n].visited = true; 
-                    nodes[n].capacity = e.capacity;   
-                    nodes[n].parent = node;  
-                    capacity = min(capacity, e.capacity);
-                }
-            }
-
-        }
+        int capacity = BFS(origin, destiny);
 
         vector<int> path;
 
@@ -379,7 +334,7 @@ void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int o
     for (int i = 0 ; i < pathList.size() ; i++) {
         cout << pathList[i][0];
         for (int j=1; j<pathList[i].size(); j++){
-            cout << "<--->" << pathList[i][j];
+            cout << "--->" << pathList[i][j];
         }
         cout << " Capacity: " << capacities[i] << endl;
     }
@@ -393,30 +348,7 @@ void Graph::case2_c(int origin, int destiny) {
 
     while (true){ 
 
-        int capacity = INF;
-
-        reset();
-        queue<int> visitedNodes = {};
-        visitedNodes.push(origin);              
-        nodes[origin].visited = true;           
-
-        while (!visitedNodes.empty()) {
-
-            int node = visitedNodes.front();
-            visitedNodes.pop();          
-
-            for (Edge e : nodes[node].adjacent) { 
-                int n = e.dest;              
-                if (!nodes[n].visited && e.capacity > 0) {           
-                    visitedNodes.push(n);           
-                    nodes[n].visited = true; 
-                    nodes[n].capacity = e.capacity;   
-                    nodes[n].parent = node;  
-                    capacity = min(capacity, e.capacity);
-                }
-            }
-
-        }
+        int capacity = BFS(origin, destiny);
 
         vector<int> path;
 
@@ -455,7 +387,7 @@ void Graph::case2_c(int origin, int destiny) {
     for (int i = 0 ; i < pathList.size() ; i++) {
         cout << pathList[i][0];
         for (int j=1; j<pathList[i].size(); j++){
-            cout << "<--->" << pathList[i][j];
+            cout << "--->" << pathList[i][j];
         }
         cout << " Capacity: " << capacities[i] << endl;
         totalCapacity += capacities[i];

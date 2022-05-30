@@ -59,7 +59,15 @@ class Graph {
          * @param origin 
          * @param destiny 
          */
-        void showPath(int origin, int destiny);
+        void showPathCase1(int origin, int destiny);
+
+        /**
+         * @brief 
+         * 
+         * @param origin 
+         * @param destiny 
+         */
+        void showPathCase2(const vector<vector<int>> &pathList);
 
         /**
          * @brief 
@@ -116,7 +124,7 @@ class Graph {
          * @param newGroupSize
          * @param groupSize 
          */
-        void case2_d(int origin, int destiny, vector<vector<int>> pathList);
+        void case2_d(int origin, int destiny, const vector<vector<int>> &pathList);
 
         /**
          * @brief 
@@ -129,6 +137,8 @@ class Graph {
          * @param groupSize 
          */
         void case2_e(int origin, int destiny, vector<vector<int>> pathList);
+
+        int BFS(int origin, int destiny);
 
     public:
 

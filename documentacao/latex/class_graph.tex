@@ -18,8 +18,6 @@ void \mbox{\hyperlink{class_graph_a16ba7b4a0842635a45bedeb804604944}{case2}} (in
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_graph_ae6435511191b198acbd6ef2a6c84be10}{add\+Node}} (const \mbox{\hyperlink{struct_node}{Node}} \&node, int index)
-\item 
 void \mbox{\hyperlink{class_graph_a9c2b6eadcdcd8e2b0ff280fe00a83a63}{add\+Edge}} (int origin, int destiny, int capacity, int duration)
 \item 
 void \mbox{\hyperlink{class_graph_a68f211a37b40067115fc6274d46153ed}{reset}} ()
@@ -41,6 +39,9 @@ void \mbox{\hyperlink{class_graph_a73d0a5660aba580b3ff020a6eb9a19fd}{case2\+\_\+
 void \mbox{\hyperlink{class_graph_a39f44063eb9db9387514fe7d620d0d9e}{case2\+\_\+d}} (int origin, int destiny, vector$<$ vector$<$ int $>$ $>$ path\+List)
 \item 
 void \mbox{\hyperlink{class_graph_a7c3535f65c293623ab57a769c2c6ad4f}{case2\+\_\+e}} (int origin, int destiny, vector$<$ vector$<$ int $>$ $>$ path\+List)
+\item 
+\mbox{\Hypertarget{class_graph_adeeb99f797431df6f44c1489f3113fe0}\label{class_graph_adeeb99f797431df6f44c1489f3113fe0}} 
+int {\bfseries BFS} (int origin, int destiny)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -78,19 +79,6 @@ Function that adds an \mbox{\hyperlink{struct_edge}{Edge}} between two nodes Tim
 {\em capacity} & -\/ an integer value representing capacity of current \mbox{\hyperlink{struct_edge}{Edge}} \\
 \hline
 {\em duration} & -\/ an integer value representing duration of traveling to one node to another \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_graph_ae6435511191b198acbd6ef2a6c84be10}\label{class_graph_ae6435511191b198acbd6ef2a6c84be10}} 
-\index{Graph@{Graph}!addNode@{addNode}}
-\index{addNode@{addNode}!Graph@{Graph}}
-\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}}
-{\footnotesize\ttfamily void Graph\+::add\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_node}{Node}} \&}]{node,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-Function that adds a new \mbox{\hyperlink{struct_node}{Node}} to the graph Time Complexity\+: O(1) 
-\begin{DoxyParams}{Parameters}
-{\em node} & -\/ \mbox{\hyperlink{struct_node}{Node}} struct that contains all characteristics of the stop \\
-\hline
-{\em index} & -\/ an integer value that represents the Stop index in vector \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_graph_a2f33a0e2669fec1f778e63e2a38a7441}\label{class_graph_a2f33a0e2669fec1f778e63e2a38a7441}} 
