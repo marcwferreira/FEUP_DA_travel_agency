@@ -8,13 +8,14 @@ void usage() {
     cout << "          1: Não há separação do grupo" << endl;
     cout << "          2: Pode haver separação do grupo" << endl;
     cout << "       <OPTION>" << endl;
-    cout << "          1: Maximização do tamanho do grupo" << endl;
-    cout << "          2: Minimização dos transbordos vs. maximização do tamanho do grupo" << endl;
-    cout << "          3: Determinar um encaminhamento para um grupo de tamanho GROUP SIZE" << endl;
-    cout << "          4: Corrigir o encaminhamento anterior de modo a aumentar o tamanho do grupo transportado" << endl;
-    cout << "          5: Determinar a dimensão máxima do grupo e um encaminhamento" << endl;
-    cout << "          6: tal" << endl;
-    cout << "          7: tal" << endl;
+    cout << "          [1] 1: Maximização do tamanho do grupo" << endl;
+    cout << "          [1] 2: Minimização dos transbordos vs. maximização do tamanho do grupo" << endl;
+    cout << endl;
+    cout << "          [2] 1: Determinar um encaminhamento para um grupo de um determinado tamanho [GROUP SIZE]" << endl;
+    cout << "          [2] 2: Corrigir o encaminhamento anterior de modo a aumentar o tamanho do grupo transportado [GROUP SIZE]" << endl;
+    cout << "          [2] 3: Determinar a dimensão máxima do grupo e um encaminhamento" << endl;
+    cout << "          [2] 4: Tempo mínimo para todo o grupo chegar ao destino" << endl;
+    cout << "          [2] 5: Tempo máximo de espera entre conexões" << endl;
     cout << "       <GRAPH>" << endl;
     cout << "          Nome do ficheiro da pasta input que descreve o grafo" << endl;
     cout << "       <ORIGIN>" << endl;
@@ -55,18 +56,26 @@ int main(int argc, char* argv[]) {
 
     switch (stoi(argv[1])) {
         case 1:
-            try {
-                graph.case1(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]));
-            } catch (const exception &e) { cerr << "Error: Invalid inputs" << endl; }
+            if(argc != 6){
+                cerr << "Error: Invalid inputs" << endl;
+            }
+            else{
+                 graph.case1(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]));
+            }
             break;
         case 2:
-            try {
-                if (stoi(argv[2]) == 5 || stoi(argv[2]) == 6 || stoi(argv[2]) == 7) {
-                    graph.case2(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]), 0);
-                } else {
+            if (stoi(argv[2]) == 1 || stoi(argv[2]) == 2){
+                if( argc != 7) cerr << "Error: Invalid inputs" << endl;
+                else{
                     graph.case2(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));
                 }
-            } catch (const exception &e) { cerr << "Error: Invalid inputs" << endl; }
+            }
+            else{
+                if( argc != 6) cerr << "Error: Invalid inputs" << endl;
+                else{
+                    graph.case2(stoi(argv[2]), stoi(argv[4]), stoi(argv[5]));
+                }
+            }
             break;
         default:
             cerr << "Error: invalid case scenario" << endl;

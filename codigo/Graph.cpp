@@ -28,7 +28,7 @@ void Graph::initialize(const string &filename) {
             getline(file, duration);
             try {
                 this->addEdge(stoi(InitialNode), stoi(DestinyNode), stoi(capacity), stoi(duration));
-            } catch (exception e) {
+            } catch (const exception &e) {
                 return;
             }
         }
@@ -44,10 +44,6 @@ void Graph::reset() {
         nodes[i].degreeE = 0;
         nodes[i].earliestArrival = INF;
     }
-}
-
-void Graph::addNode(const Node &node, int index) {
-    this->nodes[index] = node;
 }
 
 bool Graph::isValid(int node) {
@@ -87,6 +83,28 @@ void Graph::showPath(int origin, int destiny) {
 }
 
 //CASE 1
+
+void Graph::case1(int mode, int origin, int destiny) {
+
+    if (!isValid(origin) || !isValid(destiny)) {
+        cerr << "Error: Invalid node number. Max is " << nodes.size()-1 << endl;
+        return;
+    }
+
+    switch (mode) {
+        case 1:
+            case1_a(origin, destiny);
+            break;
+        case 2:
+            case1_a(origin, destiny);
+            case1_b(origin, destiny);
+            break;
+        default:
+            cerr << "Invalid mode for scenario 1" << endl;
+            exit(-1);
+            break;
+    }
+}
 
 void Graph::case1_a(int origin, int destiny) {
 
@@ -149,27 +167,7 @@ void Graph::case1_b(int origin, int destiny) {
     showPath(origin, destiny);
 }
 
-void Graph::case1(int mode, int origin, int destiny) {
-
-    if (!isValid(origin) || !isValid(destiny)) {
-        cerr << "Error: Invalid node number. Max is " << nodes.size()-1 << endl;
-        return;
-    }
-
-    switch (mode) {
-        case 1:
-            case1_a(origin, destiny);
-            break;
-        case 2:
-            case1_a(origin, destiny);
-            case1_b(origin, destiny);
-            break;
-        default:
-            cerr << "Invalid mode for scenario 1" << endl;
-            exit(-1);
-            break;
-    }
-}
+//CASE 2
 
 void Graph::case2(int mode, int origin, int destiny, int groupSize) {
 
@@ -182,21 +180,21 @@ void Graph::case2(int mode, int origin, int destiny, int groupSize) {
     int oldGroupSize;
 
     switch (mode) {
-        case 3:
+        case 1:
             case2_a(origin, destiny, groupSize);
             break;
-        case 4:
+        case 2:
             readGivenPaths(&paths, &oldGroupSize);
             case2_b(origin, destiny, paths, oldGroupSize, groupSize);
             break;
-        case 5:
+        case 3:
             case2_c(origin, destiny);
             break;
-        case 6:
+        case 4:
             readGivenPaths(&paths, &oldGroupSize);
             case2_d(origin, destiny, paths);
             break;
-        case 7:
+        case 5:
             readGivenPaths(&paths, &oldGroupSize);
             case2_e(origin, destiny, paths);
             break;
@@ -206,8 +204,6 @@ void Graph::case2(int mode, int origin, int destiny, int groupSize) {
             break;
     }
 }
-
-//CASE 2
 
 void Graph::case2_a(int origin, int destiny, int groupSize) {
     

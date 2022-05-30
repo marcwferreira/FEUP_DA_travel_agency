@@ -29,14 +29,6 @@ class Graph {
         vector<Node> nodes;
 
         /**
-         * Function that adds a new Node to the graph
-         * Time Complexity: O(1)
-         * @param node - Node struct that contains all characteristics of the stop
-         * @param index - an integer value that represents the Stop index in vector
-         */
-        void addNode(const Node &node, int index);
-
-        /**
          * Function that adds an Edge between two nodes
          * Time Complexity: O(1)
          * @param origin - an integer value representing the index of origin Node
@@ -169,7 +161,7 @@ class Graph {
          * @param destiny 
          * @param groupSize
          */
-        void case2(int mode, int origin, int destiny, int groupSize);
+        void case2(int mode, int origin, int destiny, int groupSize = 0);
 
 
 };
