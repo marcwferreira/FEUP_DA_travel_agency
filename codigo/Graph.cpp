@@ -247,6 +247,18 @@ void Graph::getEarliestStart(){
     }
 }
 
+void Graph::getEarliestArrival(){
+    for (int i = 1 ; i < nodes.size() ; i++) {
+        if (nodes[i].visited) {
+            for (Edge e : nodes[i].adjacent) {
+                if (nodes[e.dest].visited && e.visit) {
+                    nodes[e.dest].earliestArrival = min(nodes[e.dest].earliestArrival, e.duration + nodes[i].earliestStart);
+                }
+            }
+        }
+    }
+}
+
 void Graph::case1_a(int origin, int destiny) {
 
     cout << "Maximum number of passengers for the trip" << endl;
@@ -401,37 +413,20 @@ void Graph::case2_e(int origin, int destiny, vector<vector<int>> pathList){
                 if (e.dest == path[i+1]) {
                     e.visit = true;
                     nodes[e.dest].visited = true;
+                    nodes[e.dest].degreeE++;
                 }
                 nodes[path[i]].visited = true;
             }
         }
     }
 
-    for(auto &v: nodes){
-        for(Edge &e: v.adjacent) {
-            if (e.visit) nodes[e.dest].degreeE++;
-        }
-    }
-
     getEarliestStart();
+    getEarliestArrival();
 
     for (int i = 1 ; i < nodes.size() ; i++) {
-        if (nodes[i].visited) {
-            for (Edge e : nodes[i].adjacent) {
-                if (nodes[e.dest].visited && e.visit) {
-                    nodes[e.dest].earliestArrival = min(nodes[e.dest].earliestArrival, e.duration + nodes[i].earliestStart);
-                }
-            }
-        }
-    }
-
-    for (int i = 1 ; i < nodes.size() ; i++) {
-        if (nodes[i].visited) {
-            int waiting = nodes[i].earliestStart - nodes[i].earliestArrival;
-            if (waiting > 0) {
-                cout << "node " << i << " waiting " << waiting << " seconds" << endl; 
-            }
-        }
+        int waiting = nodes[i].earliestStart - nodes[i].earliestArrival;
+        if (nodes[i].visited && waiting > 0)
+            cout << "Node: " << i << " can have a waiting time of " << waiting << " hours" << endl; 
     }
 }
 

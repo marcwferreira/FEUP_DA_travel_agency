@@ -146,6 +146,8 @@ class Graph {
 
         void getEarliestStart();
 
+        void getEarliestArrival();
+
     public:
 
         /**
