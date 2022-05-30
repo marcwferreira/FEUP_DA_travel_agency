@@ -43,6 +43,7 @@ void Graph::reset() {
         nodes[i].visited = false;
         nodes[i].degreeE = 0;
         nodes[i].earliestArrival = INF;
+        nodes[i].earliestStart = 0;
     }
 }
 
@@ -215,6 +216,37 @@ int Graph::verifyFoundPath(vector<vector<int>> &pathList, vector<int> &path, vec
     return remainderSize;
 }
 
+void Graph::getEarliestStart(){
+    stack<int> S;
+    for(int i = 1 ; i < nodes.size() ; i++){
+        if(nodes[i].visited && nodes[i].degreeE==0){
+            S.push(i);
+        }
+    }
+    int minDuration = -1;
+    int vFinal;
+
+    while(!S.empty()){
+        int v = S.top();
+        S.pop();
+
+        if(minDuration < nodes[v].earliestStart){
+            minDuration = nodes[v].earliestStart;
+            vFinal = v;
+        }
+
+        for(auto &w: nodes[v].adjacent){
+            if( nodes[w.dest].earliestStart < nodes[v].earliestStart + w.duration){
+                nodes[w.dest].earliestStart = nodes[v].earliestStart + w.duration;   
+            }
+            nodes[w.dest].degreeE--;
+            if(nodes[w.dest].degreeE==0){
+                S.push(w.dest);
+            }
+        }
+    }
+}
+
 void Graph::case1_a(int origin, int destiny) {
 
     cout << "Maximum number of passengers for the trip" << endl;
@@ -342,7 +374,6 @@ void Graph::case2_c(int origin, int destiny) {
 void Graph::case2_d(int origin, int destiny, vector<vector<int>> pathList){
     
     if(pathList.empty()) return;
-
     int endTime = 0;
 
     for(vector<int> curPath: pathList){
@@ -355,12 +386,9 @@ void Graph::case2_d(int origin, int destiny, vector<vector<int>> pathList){
                 }
             }
         }
-        
         endTime = max(endTime,groupTime);
     }
-
-    cout << endTime << endl;
-
+    cout << "Minimum amount of time for the arrival of the whole group: " << endTime << " hours" << endl; 
 }
 
 void Graph::case2_e(int origin, int destiny, vector<vector<int>> pathList){
@@ -380,54 +408,12 @@ void Graph::case2_e(int origin, int destiny, vector<vector<int>> pathList){
     }
 
     for(auto &v: nodes){
-        v.earliestStart = 0;
-        v.parent = 0;
         for(Edge &e: v.adjacent) {
             if (e.visit) nodes[e.dest].degreeE++;
         }
     }
 
-    stack<int> S;
-    for(int i = 1 ; i < nodes.size() ; i++){
-        if(nodes[i].visited && nodes[i].degreeE==0){
-            S.push(i);
-        }
-    }
-    int minDuration = -1;
-    int vFinal;
-
-    while(!S.empty()){
-        int v = S.top();
-        S.pop();
-
-        if(minDuration < nodes[v].earliestStart){
-            minDuration = nodes[v].earliestStart;
-            vFinal = v;
-        }
-
-        for(auto &w: nodes[v].adjacent){
-            if( nodes[w.dest].earliestStart < nodes[v].earliestStart + w.duration){
-                printf("Hallo\n");
-                nodes[w.dest].earliestStart = nodes[v].earliestStart + w.duration;   
-            }
-            nodes[w.dest].degreeE--;
-            if(nodes[w.dest].degreeE==0){
-                S.push(w.dest);
-            }
-        }
-    }
-
-    for(int i = 1 ; i < nodes.size() ; i++){
-        if (nodes[i].visited)
-            cout << "node: " << i << " earliestStart: " << nodes[i].earliestStart << endl;
-    }
-
-    /*
-    for(int i = 1 ; i < nodes.size() ; i++){
-        if (nodes[i].visited)
-            cout << "node: " << i << " earliestArrival: " << nodes[i].earliestArrival << endl;
-    }
-    */
+    getEarliestStart();
 
     for (int i = 1 ; i < nodes.size() ; i++) {
         if (nodes[i].visited) {
@@ -438,11 +424,6 @@ void Graph::case2_e(int origin, int destiny, vector<vector<int>> pathList){
             }
         }
     }
-    
-    for(int i = 1 ; i < nodes.size() ; i++){
-        if (nodes[i].visited)
-            cout << "node: " << i << " earliestArrival: " << nodes[i].earliestArrival << endl;
-    }
 
     for (int i = 1 ; i < nodes.size() ; i++) {
         if (nodes[i].visited) {
@@ -452,7 +433,6 @@ void Graph::case2_e(int origin, int destiny, vector<vector<int>> pathList){
             }
         }
     }
-
 }
 
 #endif /* PROJECT_DA_PT2_GRAPH_CPP */

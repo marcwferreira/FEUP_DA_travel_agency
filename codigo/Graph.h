@@ -144,6 +144,8 @@ class Graph {
 
         int verifyFoundPath(vector<vector<int>> &pathList, vector<int> &path, vector<int> &capacities, int &capacity, int remainderSize = INF);
 
+        void getEarliestStart();
+
     public:
 
         /**
