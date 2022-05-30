@@ -21,20 +21,23 @@ using namespace std;
 struct Edge {
 
     /**
-     * @var dest - an integer value that represents the destination of current edge, based on node's index
+     * @param dest - an integer value that represents the destination of current edge, based on node's index
      */
     int dest;
     
     /**
-     * @var capacity - an integer value that represents the capacity of the vehicle on this path
+     * @param capacity - an integer value that represents the capacity of the vehicle on this path
      */
     int capacity;
 
     /**
-     * @var duration - an integer value that represents the duration of traveling to destination node
+     * @param duration - an integer value that represents the duration of traveling to destination node
      */
     int duration;
 
+    /**
+     * @param visit - a boolean value that represents if current node was visited
+     */
     bool visit;
 };
 
@@ -44,31 +47,49 @@ struct Edge {
 struct Node {
 
     /**
-     * @var adjacent - a list of Edges containing all possible paths from the current node
+     * @param adjacent - a list of Edges containing all possible paths from the current node
      */
-    std::list<Edge> adjacent;
+    list<Edge> adjacent;
 
     /**
-     * @var visited - a boolean attribute that indicates if the stop is active
+     * @param visited - a boolean attribute that indicates if the stop is active
      */
     bool visited;
 
     /**
-     * @var parent - an integer value represents previous node index
+     * @param parent - an integer value represents previous node index
      */
     int parent;
 
+    /**
+     * @param capacity - an integer value represents the node capacity
+     */
     int capacity;
 
+    /**
+     * @param earliestStart - an integer value represents the earliest start
+     */
     int earliestStart;
 
-    int latestFinish;
-
-    int degreeE;
-
+    /**
+     * @param earliestArrival - an integer value represents the earliest arrival
+     */
     int earliestArrival;
+
+    /**
+     * @param degreeE - an integer value represents the node degree
+     */
+    int degreeE;
 };
 
+/**
+ * @brief Function that reads a file and gathers information about travel paths and the total capacity of the routes together
+ * 
+ * @param paths - a vector which contains different travel routes (to be populated)
+ * @param groupSize - an integer value representing the desired group size
+ * @return true - if an error occurs
+ * @return false - otherwise
+ */
 bool readGivenPaths(vector<vector<int>> *paths, int *groupSize);
 
 #endif /* UTILS_H */

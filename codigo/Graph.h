@@ -14,6 +14,7 @@
 #include <limits>
 #include <typeinfo>
 #include <exception>
+
 using namespace std;
 
 /**
@@ -129,8 +130,9 @@ class Graph {
         void case2_d(int origin, int destiny, vector<vector<int>> pathList);
 
         /**
-         * @brief Function that calculates all the waiting times between bus changes that occurs in the give travel routes
-         * considering that the group
+         * @brief Function that calculates all the waiting times (for subgroup that arrives first) between bus 
+         * changes that occurs in the give travel routes considering that the whole group has to leave the 
+         * station (node) at the same time 
          * 
          * @param origin - an integer value representing the origin node
          * @param destiny - an integer value representing the destiny node
@@ -139,7 +141,7 @@ class Graph {
         void case2_e(int origin, int destiny, vector<vector<int>> pathList);
         
         /**
-         * @brief 
+         * @brief Function that traverse the graph with a Breadth-First Search
          * 
          * @param origin - an integer value representing the origin node
          * @param destiny - an integer value representing the destiny node
@@ -148,35 +150,38 @@ class Graph {
         int BFS(int origin, int destiny);
         
         /**
-         * @brief 
+         * @brief Function creates a path between origin and destination (if it exists) using
+         * the stored information
          * 
          * @param origin - an integer value representing the origin node
          * @param destiny - an integer value representing the destiny node
-         * @param path - an integerx list that will be filled with a path
+         * @param path - an integer list that will be filled with a path
          * @param capacity - maximum capacity of current path
          * @return int - representing if an error occurs
          */
         int pathBuild(int origin, int destiny, vector<int> &path, int capacity);
         
         /**
-         * @brief 
+         * @brief Function that verifies is a path already exists, if it does instead of adding it again to
+         * travel routes List (pathList) it increments the number of travelers in it
          * 
-         * @param pathList 
-         * @param path 
-         * @param capacities 
-         * @param capacity 
-         * @param remainderSize 
-         * @return int - representing if an error occurs
+         * @param pathList - a list of integer lists representing the user's input paths
+         * @param path - an integer list that will be filled with a path
+         * @param capacity - maximum capacity of current path
+         * @param capacities - an integer list containing all capacities
+         * @param remainderSize - an integer representing the remainder people
+         * @return int - representing a new remainderSize
          */
         int verifyFoundPath(vector<vector<int>> &pathList, vector<int> &path, vector<int> &capacities, int &capacity, int remainderSize = INF);
         
         /**
-         * @brief
+         * @brief Function that calculates the earliest start in all nodes that is in the travel routes (for this case the earliest departure in a group if we
+         * have to wait for the group to unite before leaving the node)
          */
         void getEarliestStart();
         
         /**
-         * @brief 
+         * @brief Function that calculates the earliest arrival of a subgroup into a node (calculates for all nodes maked in the travel routes)
          */
         void getEarliestArrival();
 
@@ -188,32 +193,30 @@ class Graph {
         Graph();
         
         /**
-         * @brief 
+         * @brief Function that initializes the graph with the given file's information
          * 
-         * @param filename 
+         * @param filename - string representing the file that contains the graph information
          */
         void initialize(const string &filename);
 
         /**
-         * @brief 
+         * @brief Function that verifies is input is valid for the graph (origin and destination) and call the correct option for case 1
          * 
-         * @param mode 
-         * @param origin 
-         * @param destiny 
+         * @param mode - an integer value representing the selected mode
+         * @param origin - an integer value representing the origin node
+         * @param destiny - an integer value representing the destiny node
          */
         void case1(int mode, int origin, int destiny);
 
         /**
-         * @brief 
+         * @brief Function that verifies is input is valid for the graph (origin and destination) and call the correct option for case 2
          * 
-         * @param mode 
-         * @param origin 
-         * @param destiny 
-         * @param groupSize
+         * @param mode - an integer value representing the selected mode
+         * @param origin - an integer value representing the origin node
+         * @param destiny - an integer value representing the destiny node
+         * @param groupSize - an integer value representing the desired group size
          */
         void case2(int mode, int origin, int destiny, int groupSize = 0);
-
-
 };
 
 #endif /* PROJECT_DA_PT2_GRAPH_H */
