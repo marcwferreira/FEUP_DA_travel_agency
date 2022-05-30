@@ -75,8 +75,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a35a32a6eaa7fc7a8761b7dd679ec4b07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a35a32a6eaa7fc7a8761b7dd679ec4b07">Graph</a> ()</td></tr>
-<tr class="separator:a35a32a6eaa7fc7a8761b7dd679ec4b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c72b8ac4d693c49800a4c7e273654f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae4c72b8ac4d693c49800a4c7e273654f">Graph</a> ()</td></tr>
+<tr class="separator:ae4c72b8ac4d693c49800a4c7e273654f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeea3f2b7642feafffed0902239447a71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aeea3f2b7642feafffed0902239447a71">initialize</a> (const string &amp;filename)</td></tr>
 <tr class="separator:aeea3f2b7642feafffed0902239447a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f33a0e2669fec1f778e63e2a38a7441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a2f33a0e2669fec1f778e63e2a38a7441">case1</a> (int mode, int origin, int destiny)</td></tr>
@@ -87,10 +87,14 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a9c2b6eadcdcd8e2b0ff280fe00a83a63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a9c2b6eadcdcd8e2b0ff280fe00a83a63">addEdge</a> (int origin, int destiny, int capacity, int duration)</td></tr>
+<tr class="memdesc:a9c2b6eadcdcd8e2b0ff280fe00a83a63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that adds an <a class="el" href="struct_edge.html">Edge</a> between two nodes.  <a href="class_graph.html#a9c2b6eadcdcd8e2b0ff280fe00a83a63">More...</a><br /></td></tr>
 <tr class="separator:a9c2b6eadcdcd8e2b0ff280fe00a83a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68f211a37b40067115fc6274d46153ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a68f211a37b40067115fc6274d46153ed">reset</a> ()</td></tr>
+<tr class="memitem:a68f211a37b40067115fc6274d46153ed"><td class="memItemLeft" align="right" valign="top"><a id="a68f211a37b40067115fc6274d46153ed" name="a68f211a37b40067115fc6274d46153ed"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
+<tr class="memdesc:a68f211a37b40067115fc6274d46153ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that clears all Nodes. <br /></td></tr>
 <tr class="separator:a68f211a37b40067115fc6274d46153ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9089828080b78f7653ce83976446029"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ac9089828080b78f7653ce83976446029">isValid</a> (int node)</td></tr>
+<tr class="memdesc:ac9089828080b78f7653ce83976446029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that determines if node is valid in current graph.  <a href="class_graph.html#ac9089828080b78f7653ce83976446029">More...</a><br /></td></tr>
 <tr class="separator:ac9089828080b78f7653ce83976446029"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae02e2d9fa09adf2cb37750f47dc949ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae02e2d9fa09adf2cb37750f47dc949ba">showPathCase1</a> (int origin, int destiny)</td></tr>
 <tr class="separator:ae02e2d9fa09adf2cb37750f47dc949ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,21 +132,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getEarliestArrival</b
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a71b5e16eb9e0670fea3ecee3526abb41"><td class="memItemLeft" align="right" valign="top"><a id="a71b5e16eb9e0670fea3ecee3526abb41" name="a71b5e16eb9e0670fea3ecee3526abb41"></a>
-vector&lt; <a class="el" href="struct_node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nodes</b></td></tr>
+<tr class="memitem:a71b5e16eb9e0670fea3ecee3526abb41"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a71b5e16eb9e0670fea3ecee3526abb41">nodes</a></td></tr>
 <tr class="separator:a71b5e16eb9e0670fea3ecee3526abb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that represents a <a class="el" href="class_graph.html">Graph</a> and its entire structure </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a35a32a6eaa7fc7a8761b7dd679ec4b07" name="a35a32a6eaa7fc7a8761b7dd679ec4b07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35a32a6eaa7fc7a8761b7dd679ec4b07">&#9670;&nbsp;</a></span>Graph()</h2>
+<a id="ae4c72b8ac4d693c49800a4c7e273654f" name="ae4c72b8ac4d693c49800a4c7e273654f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c72b8ac4d693c49800a4c7e273654f">&#9670;&nbsp;</a></span>Graph()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">nodes a vector containing <a class="el" href="struct_node.html">Node</a> type struct that includes all nodes of current Graph::Graph </td>
+          <td class="memname">Graph::Graph </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -199,7 +202,9 @@ vector&lt; <a class="el" href="struct_node.html">Node</a> &gt;&#160;</td><td cla
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Function that adds an <a class="el" href="struct_edge.html">Edge</a> between two nodes Time Complexity: O(1) </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Function that adds an <a class="el" href="struct_edge.html">Edge</a> between two nodes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">origin</td><td>- an integer value representing the index of origin <a class="el" href="struct_node.html">Node</a> </td></tr>
     <tr><td class="paramname">destiny</td><td>- an integer value representing the index of destiny <a class="el" href="struct_node.html">Node</a> </td></tr>
@@ -699,41 +704,17 @@ vector&lt; <a class="el" href="struct_node.html">Node</a> &gt;&#160;</td><td cla
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function that determines if node is valid in current graph. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">node</td><td>- an integer value representing the node </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dl class="section return"><dt>Returns</dt><dd>true - if node belongs to the graph </dd>
 <dd>
-false </dd></dl>
-
-</div>
-</div>
-<a id="a68f211a37b40067115fc6274d46153ed" name="a68f211a37b40067115fc6274d46153ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68f211a37b40067115fc6274d46153ed">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Graph::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >Function that clears all Nodes Time Complexity: O(V), which V is the number of nodes </p>
+false - otherwise </dd></dl>
 
 </div>
 </div>
@@ -817,6 +798,35 @@ false </dd></dl>
   <table class="params">
     <tr><td class="paramname">origin</td><td></td></tr>
     <tr><td class="paramname">destiny</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a71b5e16eb9e0670fea3ecee3526abb41" name="a71b5e16eb9e0670fea3ecee3526abb41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71b5e16eb9e0670fea3ecee3526abb41">&#9670;&nbsp;</a></span>nodes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="struct_node.html">Node</a>&gt; Graph::nodes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodes</td><td>- a vector containing <a class="el" href="struct_node.html">Node</a> type struct that includes all nodes of current <a class="el" href="class_graph.html">Graph</a> </td></tr>
   </table>
   </dd>
 </dl>

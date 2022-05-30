@@ -9,7 +9,7 @@ void usage() {
     cout << "          2: With group division between paths" << endl;
     cout << "       <OPTION>" << endl;
     cout << "          [1] 1: Max size of a group traveling" << endl;
-    cout << "          [1] 2: Minimization number of bus changes vs. maximiaztion of group size" << endl;
+    cout << "          [1] 2: Minimization number of bus changes vs. maximization of group size" << endl;
     cout << endl;
     cout << "          [2] 1: Find travel routes for a group of a determined size [GROUP SIZE]" << endl;
     cout << "          [2] 2: Correct travel routes in case group size increases (number of bus changes can go up) [GROUP SIZE]" << endl;

@@ -39,7 +39,7 @@ class Graph {
         void addEdge(int origin, int destiny, int capacity, int duration);
 
         /**
-         * @brief Function that clears all Nodes
+         * @brief Function that put all attributes for all nodes to default values
          */
         void reset();
         
@@ -53,55 +53,56 @@ class Graph {
         bool isValid(int node);
 
         /**
-         * @brief 
+         * @brief Function that prints a path from the origin to destination for case 1
          * 
-         * @param origin 
-         * @param destiny 
+         * @param origin - an integer value representing the origin node
+         * @param destiny - an integer value representing the destiny node
          */
         void showPathCase1(int origin, int destiny);
 
         /**
-         * @brief 
+         * @brief Function that prints a path from the origin to destination for case 2
          * 
-         * @param origin 
-         * @param destiny 
+         * @param origin - an integer value representing the origin node
+         * @param destiny - an integer value representing the destiny node
          */
         int showPathCase2(const vector<vector<int>> &pathList, vector<int> &capacities);
 
         /**
-         * @brief 
+         * @brief Function that calculates the largest group size and the path for it without dividing
+         * the group into subgroups with diferrent paths
          * 
-         * @param origin 
-         * @param destiny 
+         * @param origin - an integer value representing the origin node
+         * @param destiny - an integer value representing the destiny node
          */
         void case1_a(int origin, int destiny);
 
         /**
-         * @brief 
+         * @brief Functions that calculates the path that allows for the largest group size and the least
+         * number of bus changes (prints both routes)
          * 
-         * @param origin 
-         * @param destiny 
+         * @param origin - an integer value representing the origin node
+         * @param destiny - an integer value representing the destiny node
          */
         void case1_b(int origin, int destiny);
 
         /**
-         * @brief 
+         * @brief Function that finds travel routes for a group,
          * 
-         * @param origin 
-         * @param destiny
-         * @param groupSize 
+         * @param origin - an integer value representing the origin node
+         * @param destiny - an integer value representing the destiny node
+         * @param groupSize - an integer value representing the desired group size
          */
         void case2_a(int origin, int destiny, int groupSize);
 
          /**
          * @brief 
          * 
-         * @param origin 
-         * @param destiny
-         * @param pathList
-         * @param oldGroupSize
-         * @param newGroupSize
-         * @param groupSize 
+         * @param origin - an integer value representing the origin node
+         * @param destiny - an integer value representing the destiny 
+         * @param pathList - a list of integer lists representing the user's input
+         * @param oldGroupSize - an integer value representing the desired group size
+         * @param newGroupSize - an integer value representing the desired group size
          */
         void case2_b(int origin, int destiny, vector<vector<int>> pathList, int oldGroupSize, int newGroupSize);
 
