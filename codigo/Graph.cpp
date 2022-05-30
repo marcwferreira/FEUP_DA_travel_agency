@@ -180,6 +180,25 @@ int Graph::showPathCase2(const vector<vector<int>> &pathList, vector<int> &capac
     return totalCapacity;
 }
 
+int Graph::pathBuild(int origin, int destiny, vector<int> &path, int capacity){
+
+    int currentNode = destiny;
+    while (nodes[currentNode].parent != -1) { 
+        path.push_back(currentNode);
+        for (Edge &e : nodes[nodes[currentNode].parent].adjacent){
+            if (e.dest == currentNode) {
+                e.capacity -= capacity;
+            }
+        }
+        currentNode = nodes[currentNode].parent;
+    }
+    if (currentNode != origin) {
+        return 1;
+    } else path.push_back(currentNode);
+    reverse(path.begin(), path.end());
+    return 0;
+}
+
 void Graph::case1_a(int origin, int destiny) {
 
     cout << "Maximum number of passengers for the trip" << endl;
@@ -231,22 +250,11 @@ void Graph::case2_a(int origin, int destiny, int groupSize) {
 
         int capacity = BFS(origin, destiny);
         vector<int> path;
-        int currentNode = destiny;
-        while (nodes[currentNode].parent != -1) { 
-            path.push_back(currentNode);
-            for (Edge &e : nodes[nodes[currentNode].parent].adjacent){
-                if (e.dest == currentNode) {
-                    e.capacity -= capacity;
-                }
-            }
-            currentNode = nodes[currentNode].parent;
-        }
-        if (currentNode != origin) {
+
+        if(pathBuild(origin, destiny, path, capacity)) {
             cerr << "Error: There is no path between node " << origin << " and node " << destiny << " with desired capacity ("<< groupSize << ")" << endl;
             return;
-        } else path.push_back(currentNode);
-
-        reverse(path.begin(), path.end());
+        }
 
         bool pathExited = false;
         for(int i = 0; i<pathList.size(); i++){
@@ -298,27 +306,12 @@ void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int o
         while (remainderSize>0){ 
 
             int capacity = BFS(origin, destiny);
-
             vector<int> path;
 
-            int currentNode = destiny;
-            while (nodes[currentNode].parent != -1) { 
-                path.push_back(currentNode);
-
-                for (Edge &e : nodes[nodes[currentNode].parent].adjacent){
-                    if (e.dest == currentNode) {
-                        e.capacity -= capacity;
-                    }
-                }
-
-                currentNode = nodes[currentNode].parent;
-            }
-            if (currentNode != origin) {
+            if(pathBuild(origin, destiny, path, capacity)) {
                 cerr << "Error: There is no path between node " << origin << " and node " << destiny << " with desired capacity ("<< newGroupSize << ")" << endl;
                 return;
-            } else path.push_back(currentNode);
-
-            reverse(path.begin(), path.end());
+            }
 
             bool pathExited = false;
             for(int i = 0; i<pathList.size(); i++){
@@ -349,23 +342,9 @@ void Graph::case2_c(int origin, int destiny) {
 
         vector<int> path;
 
-        int currentNode = destiny;
-        while (nodes[currentNode].parent != -1) { 
-            path.push_back(currentNode);
-
-            for (Edge &e : nodes[nodes[currentNode].parent].adjacent){
-                if (e.dest == currentNode) {
-                    e.capacity -= capacity;
-                }
-            }
-
-            currentNode = nodes[currentNode].parent;
-        }
-        if (currentNode != origin) {
+        if(pathBuild(origin, destiny, path, capacity)) {
             break;
-        } else path.push_back(currentNode);
-
-        reverse(path.begin(), path.end());
+        }
 
         bool pathExited = false;
         for(int i = 0; i<pathList.size(); i++){

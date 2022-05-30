@@ -140,6 +140,8 @@ class Graph {
 
         int BFS(int origin, int destiny);
 
+        int pathBuild(int origin, int destiny, vector<int> &path, int capacity);
+
     public:
 
         /**
