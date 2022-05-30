@@ -24,32 +24,31 @@ class Graph {
     private:
 
         /**
-         * @var nodes - a vector containing Node type struct that includes all nodes of current Graph
+         * @param nodes - a vector containing Node type struct that includes all nodes of current Graph
          */
         vector<Node> nodes;
 
         /**
-         * Function that adds an Edge between two nodes
-         * Time Complexity: O(1)
+         * @brief Function that adds an Edge between two nodes
+         * 
          * @param origin - an integer value representing the index of origin Node
          * @param destiny - an integer value representing the index of destiny Node
-         * @param capacity -  an integer value representing capacity of current Edge
+         * @param capacity - an integer value representing capacity of current Edge
          * @param duration - an integer value representing duration of traveling to one node to another
          */
         void addEdge(int origin, int destiny, int capacity, int duration);
 
         /**
-         * Function that clears all Nodes
-         * Time Complexity: O(V), which V is the number of nodes
+         * @brief Function that clears all Nodes
          */
         void reset();
         
         /**
-         * @brief 
+         * @brief Function that determines if node is valid in current graph
          * 
-         * @param node 
-         * @return true 
-         * @return false 
+         * @param node - an integer value representing the node
+         * @return true - if node belongs to the graph
+         * @return false - otherwise
          */
         bool isValid(int node);
 

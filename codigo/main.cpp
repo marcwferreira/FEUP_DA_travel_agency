@@ -3,27 +3,27 @@
 using namespace std;
 
 void usage() {
-    cout << "\nUsage: /proj2 <CASE> <OPTION> <GRAPH> <ORIGIN> <DESTINY> [GROUP SIZE]\n" << endl;
+    cout << "\nUsage: /proj2 <CASE> <OPTION> <GRAPH> <ORIGIN> <DESTINATION> [GROUP SIZE]\n" << endl;
     cout << "       <CASE>" << endl;
-    cout << "          1: Não há separação do grupo" << endl;
-    cout << "          2: Pode haver separação do grupo" << endl;
+    cout << "          1: Without group division between paths" << endl;
+    cout << "          2: With group division between paths" << endl;
     cout << "       <OPTION>" << endl;
-    cout << "          [1] 1: Maximização do tamanho do grupo" << endl;
-    cout << "          [1] 2: Minimização dos transbordos vs. maximização do tamanho do grupo" << endl;
+    cout << "          [1] 1: Max size of a group traveling" << endl;
+    cout << "          [1] 2: Minimization number of bus changes vs. maximiaztion of group size" << endl;
     cout << endl;
-    cout << "          [2] 1: Determinar um encaminhamento para um grupo de um determinado tamanho [GROUP SIZE]" << endl;
-    cout << "          [2] 2: Corrigir o encaminhamento anterior de modo a aumentar o tamanho do grupo transportado [GROUP SIZE]" << endl;
-    cout << "          [2] 3: Determinar a dimensão máxima do grupo e um encaminhamento" << endl;
-    cout << "          [2] 4: Tempo mínimo para todo o grupo chegar ao destino" << endl;
-    cout << "          [2] 5: Tempo máximo de espera entre conexões" << endl;
+    cout << "          [2] 1: Find travel routes for a group of a determined size [GROUP SIZE]" << endl;
+    cout << "          [2] 2: Correct travel routes in case group size increases (number of bus changes can go up) [GROUP SIZE]" << endl;
+    cout << "          [2] 3: Calculate the max group size and trabel routes between origin and destination" << endl;
+    cout << "          [2] 4: Minimum amount of time for the whole group to arrive at destination" << endl;
+    cout << "          [2] 5: Max amount of time a subset of the group may wait between connections (bus changes)" << endl;
     cout << "       <GRAPH>" << endl;
-    cout << "          Nome do ficheiro da pasta input que descreve o grafo" << endl;
+    cout << "          Name of the file (inside input folder) that describes the graph" << endl;
     cout << "       <ORIGIN>" << endl;
-    cout << "          Nó de origem do caminho" << endl;
+    cout << "          Path's origin node " << endl;
     cout << "       <DESTINY>" << endl;
-    cout << "          Nó de destino do caminho" << endl;
+    cout << "          Path's destination node" << endl;
     cout << "       [GROUP SIZE]" << endl;
-    cout << "          Tamanho do grupo desejado\n" << endl;
+    cout << "          Desired group size\n" << endl;
 }
 
 void exists(const string &fileName)
