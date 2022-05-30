@@ -199,6 +199,22 @@ int Graph::pathBuild(int origin, int destiny, vector<int> &path, int capacity){
     return 0;
 }
 
+int Graph::verifyFoundPath(vector<vector<int>> &pathList, vector<int> &path, vector<int> &capacities, int &capacity, int remainderSize){
+    bool pathExited = false;
+        for(int i = 0; i<pathList.size(); i++){
+            if(path == pathList[i]){
+                capacities[i]+= min(capacity,remainderSize);
+                pathExited = true;
+            }
+        }
+        if (!pathExited) {
+            pathList.push_back(path);
+            capacities.push_back(min(capacity,remainderSize));
+        }
+        remainderSize -= capacity;
+    return remainderSize;
+}
+
 void Graph::case1_a(int origin, int destiny) {
 
     cout << "Maximum number of passengers for the trip" << endl;
@@ -245,41 +261,27 @@ void Graph::case2_a(int origin, int destiny, int groupSize) {
     vector<vector<int>> pathList;
     int remainderSize = groupSize;
     vector<int> capacities;
+    vector<int> path;
 
     while (remainderSize>0){ 
 
+        path.clear();
         int capacity = BFS(origin, destiny);
-        vector<int> path;
-
         if(pathBuild(origin, destiny, path, capacity)) {
             cerr << "Error: There is no path between node " << origin << " and node " << destiny << " with desired capacity ("<< groupSize << ")" << endl;
             return;
         }
-
-        bool pathExited = false;
-        for(int i = 0; i<pathList.size(); i++){
-            if(path == pathList[i]){
-                capacities[i]+= min(capacity,remainderSize);
-                pathExited = true;
-            }
-        }
-        if (!pathExited) {
-            pathList.push_back(path);
-            capacities.push_back(min(capacity,remainderSize));
-        }
-        remainderSize -= capacity;
+        remainderSize = verifyFoundPath(pathList, path, capacities, capacity, remainderSize);
     }
-
     showPathCase2(pathList, capacities);
 }
 
 void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int oldGroupSize, int newGroupSize) {
     
     int remainderSize = newGroupSize - oldGroupSize;
-    
     vector<int> capacities;
+    vector<int> path;
 
-    //get capacities before first run
     for(vector<int> curPath: pathList){
         
         int pathCapacity = INF;
@@ -305,29 +307,15 @@ void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int o
     if(newGroupSize > oldGroupSize){
         while (remainderSize>0){ 
 
+            path.clear();
             int capacity = BFS(origin, destiny);
-            vector<int> path;
-
             if(pathBuild(origin, destiny, path, capacity)) {
                 cerr << "Error: There is no path between node " << origin << " and node " << destiny << " with desired capacity ("<< newGroupSize << ")" << endl;
                 return;
             }
-
-            bool pathExited = false;
-            for(int i = 0; i<pathList.size(); i++){
-                if(path == pathList[i]){
-                    capacities[i]+=min(capacity,remainderSize);
-                    pathExited = true;
-                }
-            }
-            if (!pathExited) {
-                pathList.push_back(path);
-                capacities.push_back(min(capacity,remainderSize));
-            }
-            remainderSize -= capacity;
+            remainderSize = verifyFoundPath(pathList, path, capacities, capacity, remainderSize);
         }
     }
-
     showPathCase2(pathList, capacities);
 }
 
@@ -335,28 +323,16 @@ void Graph::case2_c(int origin, int destiny) {
     
     vector<vector<int>> pathList;
     vector<int> capacities;
+    vector<int> path;
 
     while (true){ 
 
+        path.clear();
         int capacity = BFS(origin, destiny);
-
-        vector<int> path;
-
         if(pathBuild(origin, destiny, path, capacity)) {
             break;
         }
-
-        bool pathExited = false;
-        for(int i = 0; i<pathList.size(); i++){
-            if(path == pathList[i]){
-                capacities[i]+= capacity;
-                pathExited = true;
-            }
-        }
-        if (!pathExited) {
-            pathList.push_back(path);
-            capacities.push_back(capacity);
-        }
+        verifyFoundPath(pathList, path, capacities, capacity);
     }
 
     int totalCapacity = showPathCase2(pathList, capacities);
