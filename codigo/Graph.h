@@ -1,3 +1,12 @@
+/**
+ * @file Graph.h
+ * @brief This file contains the implementation of the graph and all its methods
+ * 
+ * @author Fábio Araújo de Sá, Marcos William Ferreira Pinto
+ *
+ * @date 31/05/2022
+ */
+
 #ifndef PROJECT_DA_PT2_GRAPH_H
 #define PROJECT_DA_PT2_GRAPH_H
 

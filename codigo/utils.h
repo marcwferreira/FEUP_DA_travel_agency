@@ -1,3 +1,12 @@
+/**
+ * @file Utils.h
+ * @brief This file contains the definition of nodes, edges and a fuction to read a graph file
+ * 
+ * @author Fábio Araújo de Sá, Marcos William Ferreira Pinto
+ *
+ * @date 31/05/2022
+ */
+
 #ifndef UTILS_H
 #define UTILS_H
 
