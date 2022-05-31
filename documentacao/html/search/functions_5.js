@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['showpathcase1_0',['showPathCase1',['../class_graph.html#ae02e2d9fa09adf2cb37750f47dc949ba',1,'Graph']]],
-  ['showpathcase2_1',['showPathCase2',['../class_graph.html#a62dc0371ad4c7f6a58e010482633ee56',1,'Graph']]]
+  ['pathbuild_0',['pathBuild',['../class_graph.html#a27868c0c4932b5a7634816e0a968e6e3',1,'Graph']]]
 ];

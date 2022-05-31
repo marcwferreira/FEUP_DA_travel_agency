@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['initialize_0',['initialize',['../class_graph.html#aeea3f2b7642feafffed0902239447a71',1,'Graph']]],
-  ['isvalid_1',['isValid',['../class_graph.html#ac9089828080b78f7653ce83976446029',1,'Graph']]]
+  ['getearliestarrival_0',['getEarliestArrival',['../class_graph.html#af9aeeebc9a5397b984e07fbc01fe2014',1,'Graph']]],
+  ['getearlieststart_1',['getEarliestStart',['../class_graph.html#a7a82fa07222b3d11275bc6af0759ef82',1,'Graph']]],
+  ['graph_2',['Graph',['../class_graph.html#ae4c72b8ac4d693c49800a4c7e273654f',1,'Graph']]]
 ];

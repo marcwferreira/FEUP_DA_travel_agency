@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['reset_0',['reset',['../class_graph.html#a68f211a37b40067115fc6274d46153ed',1,'Graph']]]
+  ['initialize_0',['initialize',['../class_graph.html#aeea3f2b7642feafffed0902239447a71',1,'Graph']]],
+  ['isvalid_1',['isValid',['../class_graph.html#ac9089828080b78f7653ce83976446029',1,'Graph']]]
 ];
