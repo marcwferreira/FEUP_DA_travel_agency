@@ -1,16 +1,20 @@
-/*! \mainpage DA Delivery System - Calculating and organizing the best way of delivering packages using the least amount of resources possible
+/*! \mainpage DA Travel Agency Route System - Calculating and organizing the best travel routes for different groups
  *
- * This project uses Alrogithm conception studies in order to calculate the best way of organinzing deliveries for a ficticional company with the goal of 
- * delivering the maximum amount of packages in a day using the least amount of resources, specified by the different functions provided.
+ * This project uses Algorithm conception studies in order to calculate the best travel routes for a fictional company with the goal of 
+ * finding the best travel plan for a group of customer with given departure and arrival places.
  *
  * This work was done within the scope of the Algorithms Development curricular course,
  * and aimed at deepening the knowledge about conception of algorithms and dynamic programming.
  *
- * With this simple program you can select load a list of packages to be delivered and a list of trucks, in which
- * after you select from 3 possible cases:
- *  - Least amount of trucks 
- *  - Maximize profit (even in detriment of customer satisfaction by an small amount)
- *  - Maximize number of express deliveries
+ * With this simple program you can select the desired group size, origin and destination for a given graph (travel map),
+ * in which after you select from 2 possible cases and its subcases:
+ *  - [1] 1: Max size of a group traveling [no group division]
+ *  - [1] 2: Minimization number of bus changes vs. maximization of group size [no group division]
+ *  - [2] 1: Find travel routes for a group of a determined size [group division]
+ *  - [2] 2: Correct travel routes in case group size increases (number of bus changes can go up) [group division]
+ *  - [2] 3: Calculate the max group size and travel routes between origin and destination [group division]
+ *  - [2] 4: Minimum amount of time for the whole group to arrive at destination [group division]
+ *  - [2] 5: Max amount of time a subset of the group may wait between connections (bus changes) [group division]
  *
  * @author Fábio Araújo de Sá, Marcos William Ferreira Pinto
  *
@@ -32,7 +36,7 @@ void usage() {
     cout << endl;
     cout << "          [2] 1: Find travel routes for a group of a determined size [GROUP SIZE]" << endl;
     cout << "          [2] 2: Correct travel routes in case group size increases (number of bus changes can go up) [GROUP SIZE]" << endl;
-    cout << "          [2] 3: Calculate the max group size and trabel routes between origin and destination" << endl;
+    cout << "          [2] 3: Calculate the max group size and travel routes between origin and destination" << endl;
     cout << "          [2] 4: Minimum amount of time for the whole group to arrive at destination" << endl;
     cout << "          [2] 5: Max amount of time a subset of the group may wait between connections (bus changes)" << endl;
     cout << "       <GRAPH>" << endl;
