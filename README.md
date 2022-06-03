@@ -13,7 +13,7 @@ $ . ./setup.sh
 ```
 ./proj2 --help
 
-Usage: /proj2 <CASE> <OPTION> <GRAPH>
+Usage: /proj2 <CASE> <OPTION> <GRAPH> <ORIGIN> <DESTINATION> [GROUP SIZE]
 
        <CASE>
           1: Não há separação do grupo
