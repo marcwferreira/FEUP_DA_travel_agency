@@ -37,7 +37,7 @@ void Graph::initialize(const string &filename) {
 }
 
 void Graph::reset() {
-    for (int i = 1 ; i < nodes.size() ; i++) {
+    for (size_t i = 1 ; i < nodes.size() ; i++) {
         nodes[i].parent = -1;
         nodes[i].capacity = 0;
         nodes[i].visited = false;
@@ -48,7 +48,7 @@ void Graph::reset() {
 }
 
 bool Graph::isValid(int node) {
-    return node > 0 && node < nodes.size();
+    return node > 0 && node < (int) nodes.size();
 }
 
 void Graph::addEdge(int origin, int destiny, int capacity, int duration) {
@@ -170,9 +170,9 @@ int Graph::BFS(int origin, int destiny) {
 
 int Graph::showPathCase2(const vector<vector<int>> &pathList, vector<int> &capacities) {
     int totalCapacity = 0;
-    for (int i = 0 ; i < pathList.size() ; i++) {
+    for (size_t i = 0 ; i < pathList.size() ; i++) {
         cout << pathList[i][0];
-        for (int j=1; j<pathList[i].size(); j++){
+        for (size_t j=1; j<pathList[i].size(); j++){
             cout << "--->" << pathList[i][j];
         }
         cout << " Capacity: " << capacities[i] << endl;
@@ -202,7 +202,7 @@ int Graph::pathBuild(int origin, int destiny, vector<int> &path, int capacity){
 
 int Graph::verifyFoundPath(vector<vector<int>> &pathList, vector<int> &path, vector<int> &capacities, int &capacity, int remainderSize){
     bool pathExited = false;
-        for(int i = 0; i<pathList.size(); i++){
+        for(size_t i = 0; i<pathList.size(); i++){
             if(path == pathList[i]){
                 capacities[i]+= min(capacity,remainderSize);
                 pathExited = true;
@@ -218,13 +218,13 @@ int Graph::verifyFoundPath(vector<vector<int>> &pathList, vector<int> &path, vec
 
 void Graph::getEarliestStart(){
     stack<int> S;
-    for(int i = 1 ; i < nodes.size() ; i++){
+    for(size_t i = 1 ; i < nodes.size() ; i++){
         if(nodes[i].visited && nodes[i].degreeE==0){
             S.push(i);
         }
     }
     int minDuration = -1;
-    int vFinal;
+
 
     while(!S.empty()){
         int v = S.top();
@@ -232,7 +232,6 @@ void Graph::getEarliestStart(){
 
         if(minDuration < nodes[v].earliestStart){
             minDuration = nodes[v].earliestStart;
-            vFinal = v;
         }
 
         for(auto &w: nodes[v].adjacent){
@@ -248,7 +247,7 @@ void Graph::getEarliestStart(){
 }
 
 void Graph::getEarliestArrival(){
-    for (int i = 1 ; i < nodes.size() ; i++) {
+    for (size_t i = 1 ; i < nodes.size() ; i++) {
         if (nodes[i].visited) {
             for (Edge e : nodes[i].adjacent) {
                 if (nodes[e.dest].visited && e.visit) {
@@ -266,7 +265,7 @@ void Graph::case1_a(int origin, int destiny) {
     set<pair<int, int>> capacities;
 
     reset();
-    for (int i = 1 ; i < nodes.size() ; i++) {
+    for (size_t i = 1 ; i < nodes.size() ; i++) {
         capacities.insert(make_pair(0, i));
     }
 
@@ -329,7 +328,7 @@ void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int o
     for(vector<int> curPath: pathList){
         
         int pathCapacity = INF;
-        for(int i=0; i<curPath.size()-1; i++){
+        for(size_t i=0; i<curPath.size()-1; i++){
             for(auto j: nodes[curPath[i]].adjacent){
                 if(j.dest == curPath[i+1]){
                    pathCapacity = min(pathCapacity, j.capacity);
@@ -337,7 +336,7 @@ void Graph::case2_b(int origin, int destiny, vector<vector<int>> pathList, int o
             }
         }
 
-        for(int i=0; i<curPath.size()-1; i++){
+        for(size_t i=0; i<curPath.size()-1; i++){
             for(auto &j: nodes[curPath[i]].adjacent){
                 if(j.dest == curPath[i+1]){
                    j.capacity -= min(pathCapacity, oldGroupSize);
@@ -391,7 +390,7 @@ void Graph::case2_d(int origin, int destiny, vector<vector<int>> pathList){
     for(vector<int> curPath: pathList){
         
         int groupTime = 0;
-        for(int i=0; i<curPath.size()-1; i++){
+        for(size_t i=0; i<curPath.size()-1; i++){
             for(auto j: nodes[curPath[i]].adjacent){
                 if(j.dest == curPath[i+1]){
                   groupTime += j.duration;
@@ -408,7 +407,7 @@ void Graph::case2_e(int origin, int destiny, vector<vector<int>> pathList){
     reset();
     
     for (vector<int> path : pathList) {
-        for (int i = 0 ; i < path.size() -1 ; i++) {
+        for (size_t i = 0 ; i < path.size() -1 ; i++) {
             for (Edge &e : nodes[path[i]].adjacent) {
                 if (e.dest == path[i+1]) {
                     e.visit = true;
@@ -423,7 +422,7 @@ void Graph::case2_e(int origin, int destiny, vector<vector<int>> pathList){
     getEarliestStart();
     getEarliestArrival();
 
-    for (int i = 1 ; i < nodes.size() ; i++) {
+    for (size_t i = 1 ; i < nodes.size() ; i++) {
         int waiting = nodes[i].earliestStart - nodes[i].earliestArrival;
         if (nodes[i].visited && waiting > 0)
             cout << "Node: " << i << " can have a waiting time of " << waiting << " hours" << endl; 
