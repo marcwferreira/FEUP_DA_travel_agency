@@ -30,6 +30,12 @@ Usage: /proj2 <CASE> <OPTION> <GRAPH> <ORIGIN> <DESTINATION> [GROUP SIZE]
           Nome do ficheiro da pasta input que descreve o grafo
 ```
 
+## Tests
+
+```
+How to run tests go here
+```
+
 ## Elementos:
 
 - Fábio Sá, up202007658
