@@ -1,0 +1,176 @@
+\hypertarget{classGraph}{}\doxysection{Graph Class Reference}
+\label{classGraph}\index{Graph@{Graph}}
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGraph_a35a32a6eaa7fc7a8761b7dd679ec4b07}{Graph}} ()
+\item 
+void \mbox{\hyperlink{classGraph_aeea3f2b7642feafffed0902239447a71}{initialize}} (const string \&filename)
+\item 
+void \mbox{\hyperlink{classGraph_a2f33a0e2669fec1f778e63e2a38a7441}{case1}} (int mode, int origin, int destiny)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGraph_ae6435511191b198acbd6ef2a6c84be10}{add\+Node}} (const \mbox{\hyperlink{structNode}{Node}} \&node, int index)
+\item 
+void \mbox{\hyperlink{classGraph_a9c2b6eadcdcd8e2b0ff280fe00a83a63}{add\+Edge}} (int origin, int destiny, int capacity, int duration)
+\item 
+void \mbox{\hyperlink{classGraph_a68f211a37b40067115fc6274d46153ed}{reset}} ()
+\item 
+bool \mbox{\hyperlink{classGraph_ac9089828080b78f7653ce83976446029}{is\+Valid}} (int node)
+\item 
+void \mbox{\hyperlink{classGraph_aeb49c102487a7fac4de92c5f4f743c4a}{show\+Path}} (int origin, int destiny)
+\item 
+void \mbox{\hyperlink{classGraph_a3f8a497ab18263838277d18c736d16e7}{case1\+\_\+a}} (int origin, int destiny)
+\item 
+void \mbox{\hyperlink{classGraph_a04bd8dd496a7f565b6c30e967a8ace18}{case1\+\_\+b}} (int origin, int destiny)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraph_a71b5e16eb9e0670fea3ecee3526abb41}\label{classGraph_a71b5e16eb9e0670fea3ecee3526abb41}} 
+vector$<$ \mbox{\hyperlink{structNode}{Node}} $>$ {\bfseries nodes}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that represents a \mbox{\hyperlink{classGraph}{Graph}} and its entire structure 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGraph_a35a32a6eaa7fc7a8761b7dd679ec4b07}\label{classGraph_a35a32a6eaa7fc7a8761b7dd679ec4b07}} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily nodes a vector containing \mbox{\hyperlink{structNode}{Node}} type struct that includes all nodes of current Graph\+::\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Main constructor of the class \mbox{\hyperlink{classGraph}{Graph}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraph_a9c2b6eadcdcd8e2b0ff280fe00a83a63}\label{classGraph_a9c2b6eadcdcd8e2b0ff280fe00a83a63}} 
+\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{origin,  }\item[{int}]{destiny,  }\item[{int}]{capacity,  }\item[{int}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Function that adds an \mbox{\hyperlink{structEdge}{Edge}} between two nodes Time Complexity\+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em origin} & -\/ an integer value representing the index of origin \mbox{\hyperlink{structNode}{Node}} \\
+\hline
+{\em destiny} & -\/ an integer value representing the index of destiny \mbox{\hyperlink{structNode}{Node}} \\
+\hline
+{\em capacity} & -\/ an integer value representing capacity of current \mbox{\hyperlink{structEdge}{Edge}} \\
+\hline
+{\em duration} & -\/ an integer value representing duration of traveling to one node to another \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_ae6435511191b198acbd6ef2a6c84be10}\label{classGraph_ae6435511191b198acbd6ef2a6c84be10}} 
+\index{Graph@{Graph}!addNode@{addNode}}
+\index{addNode@{addNode}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}}
+{\footnotesize\ttfamily void Graph\+::add\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structNode}{Node}} \&}]{node,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Function that adds a new \mbox{\hyperlink{structNode}{Node}} to the graph Time Complexity\+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em node} & -\/ \mbox{\hyperlink{structNode}{Node}} struct that contains all characteristics of the stop \\
+\hline
+{\em index} & -\/ an integer value that represents the Stop index in vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a2f33a0e2669fec1f778e63e2a38a7441}\label{classGraph_a2f33a0e2669fec1f778e63e2a38a7441}} 
+\index{Graph@{Graph}!case1@{case1}}
+\index{case1@{case1}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{case1()}{case1()}}
+{\footnotesize\ttfamily void Graph\+::case1 (\begin{DoxyParamCaption}\item[{int}]{mode,  }\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & \\
+\hline
+{\em origin} & \\
+\hline
+{\em destiny} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a3f8a497ab18263838277d18c736d16e7}\label{classGraph_a3f8a497ab18263838277d18c736d16e7}} 
+\index{Graph@{Graph}!case1\_a@{case1\_a}}
+\index{case1\_a@{case1\_a}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{case1\_a()}{case1\_a()}}
+{\footnotesize\ttfamily void Graph\+::case1\+\_\+a (\begin{DoxyParamCaption}\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & \\
+\hline
+{\em destiny} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a04bd8dd496a7f565b6c30e967a8ace18}\label{classGraph_a04bd8dd496a7f565b6c30e967a8ace18}} 
+\index{Graph@{Graph}!case1\_b@{case1\_b}}
+\index{case1\_b@{case1\_b}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{case1\_b()}{case1\_b()}}
+{\footnotesize\ttfamily void Graph\+::case1\+\_\+b (\begin{DoxyParamCaption}\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & \\
+\hline
+{\em destiny} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_aeea3f2b7642feafffed0902239447a71}\label{classGraph_aeea3f2b7642feafffed0902239447a71}} 
+\index{Graph@{Graph}!initialize@{initialize}}
+\index{initialize@{initialize}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Graph\+::initialize (\begin{DoxyParamCaption}\item[{const string \&}]{filename }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_ac9089828080b78f7653ce83976446029}\label{classGraph_ac9089828080b78f7653ce83976446029}} 
+\index{Graph@{Graph}!isValid@{isValid}}
+\index{isValid@{isValid}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Graph\+::is\+Valid (\begin{DoxyParamCaption}\item[{int}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a68f211a37b40067115fc6274d46153ed}\label{classGraph_a68f211a37b40067115fc6274d46153ed}} 
+\index{Graph@{Graph}!reset@{reset}}
+\index{reset@{reset}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Graph\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Function that clears all Nodes Time Complexity\+: O(\+V), which V is the number of nodes \mbox{\Hypertarget{classGraph_aeb49c102487a7fac4de92c5f4f743c4a}\label{classGraph_aeb49c102487a7fac4de92c5f4f743c4a}} 
+\index{Graph@{Graph}!showPath@{showPath}}
+\index{showPath@{showPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{showPath()}{showPath()}}
+{\footnotesize\ttfamily void Graph\+::show\+Path (\begin{DoxyParamCaption}\item[{int}]{origin,  }\item[{int}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & \\
+\hline
+{\em destiny} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Graph.\+h\item 
+Graph.\+cpp\end{DoxyCompactItemize}
