@@ -1,7 +1,6 @@
 import sys
 from random import randint as rd
 from math import ceil as c
-from tkinter.tix import MAX
 
 '''
 Script que gera um grafo com N nós de acordo com os limites do dataset original
@@ -9,7 +8,7 @@ O número de Edges, E, é calculado segundo um FACTOR de multiplicação
 Coloca o resultado na pasta ../input, em formato "graph<N>.txt"
 '''
 
-ORIGINAL = "../input/graph50.txt"
+ORIGINAL = "../../input/graph50.txt"
 MAXIMUM = 100000
 MINIMUM = -1
 FACTOR = 5
@@ -41,7 +40,7 @@ def generate(nodes : int):
     edges = FACTOR * nodes
     oldEdges = []
 
-    with open("../input/" + fileName, 'w') as file:
+    with open("../../input/" + fileName, 'w') as file:
         
         file.write("{} {}\n".format(nodes, edges))
 
