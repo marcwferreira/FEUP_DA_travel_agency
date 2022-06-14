@@ -22,7 +22,7 @@ Observação: nos cenários 2.2, 2.4 e 2.5 é necessário informar nome do fiche
 
 ### Representação do grafo 10:
 
-![Grafo 10](documentacao/img/graph10.png)
+![Grafo 10](documentacao/img/unknown-2.png)
 
 ## Help
 
