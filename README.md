@@ -1,6 +1,6 @@
 # Travel Agency - DA 2nd Project
 
-### This was done for DA FEUP. Grade = 96.65%.
+### This was done for the subject of DA in FEUP. Grade = 96.65%.
 
 ## Build
 
